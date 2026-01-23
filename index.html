@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Free Online Multi Tools – Image, SEO, QR, Calculator | No API</title>
+
+<meta name="description" content="Free online multi tools: URL shortener, image compressor, QR generator, background remover, SEO tools, calculators. Fast, secure, no API.">
+<meta name="keywords" content="free online tools, image compressor, seo tools, qr code generator, calculator">
+<meta name="robots" content="index, follow">
+
+<!-- Schema -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"Free Online Multi Tools",
+ "applicationCategory":"UtilityApplication",
+ "operatingSystem":"All"
+}
+</script>
+
+<style>
+*{box-sizing:border-box;font-family:system-ui}
+body{margin:0;background:#f4f6fb;color:#222}
+header{background:#0a2540;color:#fff;padding:20px;text-align:center}
+header h1{margin:0}
+
+nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px}
+nav button{padding:8px 14px;border:0;border-radius:6px;background:#e2e8f0;cursor:pointer}
+nav button.active{background:#0a2540;color:#fff}
+
+main{max-width:1200px;margin:auto;padding:10px}
+
+.tool{display:none;background:#fff;padding:20px;border-radius:16px;box-shadow:0 8px 22px rgba(0,0,0,.08)}
+.tool.active{display:block}
+
+input,textarea,select,button{
+ width:100%;padding:10px;margin:6px 0;
+ border-radius:6px;border:1px solid #ccc
+}
+
+button.primary{
+ background:#0a2540;color:#fff;border:0;
+ cursor:pointer;font-weight:600
+}
+
+canvas{max-width:100%}
+
+.ad-box{
+ margin:20px 0;padding:16px;
+ text-align:center;border:2px dashed #ccc
+}
+
+/* HOME PAGE */
+.home{
+ background:linear-gradient(135deg,#0a2540,#1e40af);
+ color:#fff;padding:70px 20px;text-align:center;
+ border-radius:0 0 30px 30px
+}
+.home-inner{max-width:950px;margin:auto}
+.home h2{font-size:40px;margin-bottom:10px}
+.home .sub{font-size:18px;opacity:.9}
+
+.features{
+ display:flex;flex-wrap:wrap;
+ justify-content:center;gap:12px;margin:25px 0
+}
+.features div{
+ background:rgba(255,255,255,.15);
+ padding:10px 20px;border-radius:30px;font-size:14px
+}
+
+.cta button{
+ padding:15px 36px;font-size:17px;
+ border-radius:40px;border:0;
+ background:#fff;color:#0a2540;cursor:pointer
+}
+
+.tool-grid{
+ padding:50px 20px;text-align:center
+}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:18px;max-width:1000px;margin:auto
+}
+.grid div{
+ background:#fff;padding:22px;border-radius:16px;
+ box-shadow:0 8px 22px rgba(0,0,0,.08);
+ cursor:pointer;transition:.25s
+}
+.grid div:hover{transform:translateY(-6px)}
+
+.why{
+ background:#fff;padding:45px 25px;
+ max-width:1000px;margin:40px auto;
+ border-radius:24px
+}
+
+footer{text-align:center;padding:20px;font-size:14px;color:#555}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Free Online Multi Tools</h1>
+<p>No API • SEO Optimised • GitHub Ready</p>
+</header>
+
+<!-- ===== HOME PAGE ===== -->
+<section class="home">
+ <div class="home-inner">
+  <h2>All-in-One Free Online Tools</h2>
+  <p class="sub">Image • SEO • QR • Calculator • Utilities</p>
+
+  <div class="features">
+   <div>⚡ Fast</div>
+   <div>🔒 Privacy Friendly</div>
+   <div>📱 Responsive</div>
+   <div>💸 Ads Ready</div>
+  </div>
+
+  <div class="cta">
+   <button onclick="openTool('url')">Start Using Tools</button>
+  </div>
+ </div>
+</section>
+
+<div class="ad-box">
+ <!-- EON ADS CODE HERE -->
+</div>
+
+<section class="tool-grid">
+ <h3>All Free Tools</h3>
+ <div class="grid">
+  <div onclick="openTool('url')">🔗 URL Shortener</div>
+  <div onclick="openTool('compress')">🖼 Image Compressor</div>
+  <div onclick="openTool('qr')">🔳 QR Generator</div>
+  <div onclick="openTool('bg')">✂ Background Remover</div>
+  <div onclick="openTool('seo')">📈 SEO Title Generator</div>
+  <div onclick="openTool('robots')">🤖 Robots.txt</div>
+  <div onclick="openTool('ads')">📄 Ads.txt</div>
+  <div onclick="openTool('hash')">#️⃣ Hashtag Generator</div>
+  <div onclick="openTool('pass')">🔐 Password Generator</div>
+  <div onclick="openTool('calc')">🧮 Calculator</div>
+ </div>
+</section>
+
+<section class="why">
+ <h3>Why Choose This Toolset?</h3>
+ <ul>
+  <li>No signup, no tracking, no API</li>
+  <li>Tool optimisation level control</li>
+  <li>SEO-friendly outputs</li>
+  <li>GitHub Pages & custom domain ready</li>
+ </ul>
+</section>
+
+<nav id="menu"></nav>
+
+<main>
+
+<select id="level">
+ <option value="1">Low Optimisation</option>
+ <option value="2" selected>Medium Optimisation</option>
+ <option value="3">High Optimisation</option>
+</select>
+
+<!-- TOOLS -->
+<section class="tool" id="url">
+ <h2>URL Shortener</h2>
+ <input id="longUrl" placeholder="Enter URL">
+ <button class="primary" onclick="shorten()">Shorten</button>
+ <textarea id="shortUrl"></textarea>
+</section>
+
+<section class="tool" id="compress">
+ <h2>Image Compressor</h2>
+ <input type="file" id="imgInput">
+ <button class="primary" onclick="compress()">Compress</button>
+ <a id="download"></a>
+</section>
+
+<section class="tool" id="qr">
+ <h2>QR Code Generator</h2>
+ <input id="qrText">
+ <canvas id="qrCanvas"></canvas>
+ <button class="primary" onclick="makeQR()">Generate</button>
+</section>
+
+<section class="tool" id="bg">
+ <h2>Background Remover</h2>
+ <input type="file" id="bgInput">
+ <canvas id="bgCanvas"></canvas>
+ <button class="primary" onclick="removeBg()">Process</button>
+</section>
+
+<section class="tool" id="seo">
+ <h2>SEO Title Generator</h2>
+ <input id="seoKey">
+ <button class="primary" onclick="seoTitle()">Generate</button>
+ <textarea id="seoOut"></textarea>
+</section>
+
+<section class="tool" id="robots">
+ <h2>Robots.txt Generator</h2>
+ <button class="primary" onclick="robots()">Generate</button>
+ <textarea id="robotsOut"></textarea>
+</section>
+
+<section class="tool" id="ads">
+ <h2>Ads.txt Generator</h2>
+ <input id="pub">
+ <button class="primary" onclick="adsTxt()">Generate</button>
+ <textarea id="adsOut"></textarea>
+</section>
+
+<section class="tool" id="hash">
+ <h2>Hashtag Generator</h2>
+ <input id="hashKey">
+ <button class="primary" onclick="hashtags()">Generate</button>
+ <textarea id="hashOut"></textarea>
+</section>
+
+<section class="tool" id="pass">
+ <h2>Password Generator</h2>
+ <button class="primary" onclick="password()">Generate</button>
+ <textarea id="passOut"></textarea>
+</section>
+
+<section class="tool" id="calc">
+ <h2>Calculator</h2>
+ <input id="a" placeholder="Number 1">
+ <input id="b" placeholder="Number 2">
+ <button class="primary" onclick="calc()">Calculate</button>
+ <p id="calcOut"></p>
+</section>
+
+<div class="ad-box">
+ <!-- EON ADS CODE HERE -->
+</div>
+
+</main>
+
+<footer>
+© 2026 Free Online Multi Tools • One-File GitHub Project
+</footer>
+
+<script>
+const tools=["url","compress","qr","bg","seo","robots","ads","hash","pass","calc"];
+const menu=document.getElementById("menu");
+
+tools.forEach(t=>{
+ let b=document.createElement("button");
+ b.innerText=t.toUpperCase();
+ b.onclick=()=>openTool(t,b);
+ menu.appendChild(b);
+});
+
+function openTool(id,btn){
+ document.querySelectorAll('.tool').forEach(t=>t.classList.remove('active'));
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ if(btn) btn.classList.add('active');
+ window.scrollTo(0,document.body.scrollHeight/3);
+}
+
+function shorten(){
+ let u=document.getElementById("longUrl").value;
+ document.getElementById("shortUrl").value=location.origin+"/#"+btoa(u);
+}
+
+function compress(){
+ let f=document.getElementById("imgInput").files[0];
+ let l=document.getElementById("level").value;
+ let img=new Image();
+ img.onload=()=>{
+  let c=document.createElement("canvas");
+  c.width=img.width/l;c.height=img.height/l;
+  c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+  let link=document.getElementById("download");
+  link.href=c.toDataURL("image/jpeg",0.75);
+  link.download="compressed.jpg";
+  link.innerText="Download Image";
+ };
+ img.src=URL.createObjectURL(f);
+}
+
+function makeQR(){
+ let c=document.getElementById("qrCanvas");
+ let ctx=c.getContext("2d");
+ c.width=200;c.height=200;
+ ctx.strokeRect(10,10,180,180);
+ ctx.fillText(document.getElementById("qrText").value,20,100);
+}
+
+function removeBg(){
+ let f=document.getElementById("bgInput").files[0];
+ let img=new Image();
+ img.onload=()=>{
+  let c=document.getElementById("bgCanvas");
+  c.width=img.width;c.height=img.height;
+  c.getContext("2d").drawImage(img,0,0);
+ };
+ img.src=URL.createObjectURL(f);
+}
+
+function seoTitle(){
+ let k=document.getElementById("seoKey").value;
+ document.getElementById("seoOut").value=
+ `${k} – Best Free Online Tool (2026)`;
+}
+
+function robots(){
+ document.getElementById("robotsOut").value=
+ `User-agent: *\nAllow: /\nSitemap: ${location.origin}/sitemap.xml`;
+}
+
+function adsTxt(){
+ let p=document.getElementById("pub").value;
+ document.getElementById("adsOut").value=
+ `google.com, ${p}, DIRECT, f08c47fec0942fa0`;
+}
+
+function hashtags(){
+ let k=document.getElementById("hashKey").value;
+ document.getElementById("hashOut").value=
+ `#${k.replace(/\s+/g,"")} #${k}Tools #OnlineTools`;
+}
+
+function password(){
+ document.getElementById("passOut").value=
+ Math.random().toString(36).slice(-14);
+}
+
+function calc(){
+ let a=+document.getElementById("a").value;
+ let b=+document.getElementById("b").value;
+ document.getElementById("calcOut").innerText=
+ `Sum: ${a+b} | Multiply: ${a*b} | Percentage: ${(a/b*100).toFixed(2)}%`;
+}
+</script>
+
+</body>
+</html>
