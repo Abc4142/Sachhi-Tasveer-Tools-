@@ -1,1 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ===================== -->
+<!-- ADMolo HEAD SCRIPT -->
+<!-- ===================== -->
+<script class="admoloScript" src="https://admolo.com/assets/ads/ad.js" async></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sachhita Save Tools – Free Online Tools</title>
+
+<meta name="description" content="Sachhita Save Tools offers free online tools like URL shortener, image compressor, QR generator, SEO tools, calculators and more.">
+<meta name="keywords" content="free tools, seo tools, image compressor, qr code generator, online calculator">
+<meta name="robots" content="index, follow">
+
+<style>
+*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{margin:0;background:#f4f6fb;color:#222}
+header{background:#1a2bff;color:#fff;padding:20px;text-align:center}
+header h1{margin:0;font-size:28px}
+.container{max-width:1200px;margin:auto;padding:15px}
+.tool{background:#fff;margin:20px 0;padding:20px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.08)}
+.tool h2{margin-top:0;color:#1a2bff}
+input,select,textarea,button{
+width:100%;padding:10px;margin-top:8px;border:1px solid #ccc;border-radius:5px
+}
+button{background:#1a2bff;color:#fff;border:none;cursor:pointer}
+button:hover{background:#0f1ec9}
+.result{background:#f1f1f1;padding:10px;margin-top:10px;border-radius:5px;word-break:break-all}
+.ad-slot{text-align:center;margin:20px 0}
+footer{background:#111;color:#fff;text-align:center;padding:20px;margin-top:30px}
+canvas{max-width:100%;margin-top:10px}
+img{max-width:100%;margin-top:10px}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Sachhita Save Tools</h1>
+<p>Free • Fast • SEO Optimised Online Tools</p>
+</header>
+
+<!-- ===================== -->
+<!-- TOP ADMolo AD 728x90 -->
+<!-- ===================== -->
+<div class="ad-slot">
+<div class="admoloBanner"
+data-publisher="eyJpdiI6ImwvV2djeWprSWd1MzlVZkI5aU4wL1E9PSIsInZhbHVlIjoibk5YeUtBa01WbzBWb3NRL0c0bU55QT09IiwibWFjIjoiNDg1MDNlODdhMTA1ZjAxOTgxN2Q1ZWI1MmM3ODNkOGU0MDRjYWYwN2NiZTk0YzhkN2FiOTY1M2Q0Yjk3OWIxMSIsInRhZyI6IiJ9"
+data-adsize="728x90"></div>
+</div>
+
+<div class="container">
+
+<!-- TOOL LEVEL -->
+<div class="tool">
+<h2>⚙ Tool Optimisation Level</h2>
+<select>
+<option>Low</option>
+<option selected>Medium</option>
+<option>High</option>
+</select>
+</div>
+
+<!-- URL SHORTENER -->
+<div class="tool">
+<h2>🔗 URL Shortener</h2>
+<input id="longUrl" placeholder="Enter long URL">
+<button onclick="shortenUrl()">Generate Short URL</button>
+<div class="result" id="shortResult"></div>
+
+<div class="ad-slot">
+<div class="admoloBanner"
+data-publisher="eyJpdiI6Im1ZWE5ibmxUeHlTSnZpNkgvRFd1TEE9PSIsInZhbHVlIjoiMERabFoyUDc3R1NGLzJ6NjVERDN6Zz09IiwibWFjIjoiOTY4ZTMwYmI1YWMyZmEwNWRkOTJmOGVjY2I4ZWYzOTUxMzcyZjNhMWVjYTUyYWQzMGU0ZTY3NjZkZTEyMDcyNyIsInRhZyI6IiJ9"
+data-adsize="300x300"></div>
+</div>
+</div>
+
+<!-- IMAGE COMPRESSOR -->
+<div class="tool">
+<h2>🖼 Image Compressor</h2>
+<input type="file" id="imgInput">
+<button onclick="compressImage()">Compress Image</button>
+<canvas id="canvas"></canvas>
+</div>
+
+<!-- QR GENERATOR -->
+<div class="tool">
+<h2>📱 QR Code Generator</h2>
+<input id="qrText" placeholder="Enter text or URL">
+<button onclick="generateQR()">Generate QR</button>
+<img id="qrImg">
+</div>
+
+<!-- SEO TITLE -->
+<div class="tool">
+<h2>📝 SEO Title Generator</h2>
+<input id="seoKeyword" placeholder="Main keyword">
+<button onclick="generateTitle()">Generate</button>
+<div class="result" id="seoResult"></div>
+</div>
+
+<!-- ROBOTS TXT -->
+<div class="tool">
+<h2>🤖 Robots.txt Generator</h2>
+<button onclick="generateRobots()">Generate</button>
+<pre class="result" id="robotsTxt"></pre>
+</div>
+
+<!-- ADS TXT -->
+<div class="tool">
+<h2>📢 Ads.txt Generator</h2>
+<input id="adsDomain" placeholder="example.com">
+<button onclick="generateAds()">Generate</button>
+<pre class="result" id="adsTxt"></pre>
+</div>
+
+<!-- HASHTAG -->
+<div class="tool">
+<h2>#️⃣ Hashtag Generator</h2>
+<input id="hashWord" placeholder="Keyword">
+<button onclick="generateHash()">Generate</button>
+<div class="result" id="hashResult"></div>
+</div>
+
+<!-- PASSWORD -->
+<div class="tool">
+<h2>🔐 Password Generator</h2>
+<button onclick="generatePassword()">Generate Password</button>
+<div class="result" id="passResult"></div>
+</div>
+
+<!-- CALCULATOR -->
+<div class="tool">
+<h2>🧮 All-Format Calculator</h2>
+<input id="calcValue" placeholder="Enter value">
+<select id="calcType">
+<option value="km">KM → Miles</option>
+<option value="kg">KG → Pound</option>
+<option value="c">°C → °F</option>
+</select>
+<button onclick="calculate()">Calculate</button>
+<div class="result" id="calcResult"></div>
+</div>
+
+</div>
+
+<!-- ===================== -->
+<!-- FOOTER + ADMolo AD -->
+<!-- ===================== -->
+<footer>
+
+<div class="ad-slot">
+<div class="admoloBanner"
+data-publisher="eyJpdiI6Im1ZWE5ibmxUeHlTSnZpNkgvRFd1TEE9PSIsInZhbHVlIjoiMERabFoyUDc3R1NGLzJ6NjVERDN6Zz09IiwibWFjIjoiOTY4ZTMwYmI1YWMyZmEwNWRkOTJmOGVjY2I4ZWYzOTUxMzcyZjNhMWVjYTUyYWQzMGU0ZTY3NjZkZTEyMDcyNyIsInRhZyI6IiJ9"
+data-adsize="300x300"></div>
+</div>
+
+<p>© 2026 SachhitaSaveTools.com – All Rights Reserved</p>
+</footer>
+
+<script>
+function shortenUrl(){
+let v=longUrl.value.trim()
+if(!v){shortResult.innerText="Please enter a URL";return}
+shortResult.innerText="https://sst.ly/"+btoa(v).slice(0,7)
+}
+
+function compressImage(){
+let file=imgInput.files[0]
+if(!file)return
+let reader=new FileReader()
+reader.onload=e=>{
+let img=new Image()
+img.onload=()=>{
+canvas.width=img.width*0.7
+canvas.height=img.height*0.7
+canvas.getContext("2d").drawImage(img,0,0,canvas.width,canvas.height)
+}
+img.src=e.target.result
+}
+reader.readAsDataURL(file)
+}
+
+function generateQR(){
+qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+encodeURIComponent(qrText.value)
+}
+
+function generateTitle(){
+seoResult.innerText=seoKeyword.value+" – Best Free Online Tool in 2026"
+}
+
+function generateRobots(){
+robotsTxt.innerText="User-agent: *\nAllow: /\nSitemap: https://sachhitasveertools.com/sitemap.xml"
+}
+
+function generateAds(){
+adsTxt.innerText=adsDomain.value+", DIRECT, f08c47fec0942fa0"
+}
+
+function generateHash(){
+hashResult.innerText="#"+hashWord.value.replace(/\s+/g,"")+" #seo #tools #free"
+}
+
+function generatePassword(){
+passResult.innerText=Math.random().toString(36).slice(-8)+"A@9"
+}
+
+function calculate(){
+let v=parseFloat(calcValue.value)
+if(isNaN(v))return
+if(calcType.value==="km")calcResult.innerText=(v*0.621).toFixed(2)+" Miles"
+if(calcType.value==="kg")calcResult.innerText=(v*2.204).toFixed(2)+" Pound"
+if(calcType.value==="c")calcResult.innerText=(v*9/5+32).toFixed(2)+" °F"
+}
+</script>
+
+</body>
+</html>
 
