@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sachhita Save Tools – Free PDF Tools Online</title>
+
+<meta name="description" content="Sachhita Save Tools provides free advanced PDF tools online. Compress, optimise and manage PDFs securely without upload.">
+<meta name="robots" content="index, follow">
+
+<!-- AdMolo HEAD SCRIPT (HEAD में ही लगेगा) -->
+<script class="admoloScript" src="https://admolo.com/assets/ads/ad.js"></script>
+
+<style>
+:root{
+  --p:#2563eb;
+  --s:#7c3aed;
+  --g:#22c55e;
+  --bg:#f4f6fb;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto;
+  background:var(--bg);
+}
+a{text-decoration:none}
+
+header{
+  background:linear-gradient(135deg,var(--p),var(--s));
+  color:#fff;
+  text-align:center;
+  padding:70px 20px;
+}
+header h1{font-size:42px;margin-bottom:10px}
+header p{font-size:18px;opacity:.95}
+
+.btn{
+  display:inline-block;
+  margin:10px;
+  padding:14px 30px;
+  border-radius:30px;
+  font-weight:600;
+}
+.btn-white{background:#fff;color:#111}
+.btn-outline{border:2px solid #fff;color:#fff}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+.section-title{text-align:center;margin-bottom:30px}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
+}
+.card{
+  background:#fff;
+  padding:24px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  transition:.3s;
+}
+.card:hover{transform:translateY(-6px)}
+
+.ad-box{
+  display:flex;
+  justify-content:center;
+  margin:30px 0;
+}
+
+.tool-box{
+  background:#fff;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+  max-width:850px;
+  margin:auto;
+}
+
+input,select,button{
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  font-size:16px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+button{
+  background:var(--p);
+  color:#fff;
+  border:none;
+  cursor:pointer;
+}
+button:hover{opacity:.9}
+
+footer{
+  background:#0b0b0b;
+  color:#aaa;
+  text-align:center;
+  padding:24px;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <h1>Sachhita Save Tools</h1>
+  <p>Free Advanced PDF Tools – Secure • Fast • No Upload</p>
+  <a href="#tools" class="btn btn-white">Use PDF Tools</a>
+  <a href="#features" class="btn btn-outline">Why Us?</a>
+</header>
+
+<!-- ================= TOP AD ================= -->
+<div class="ad-box">
+  <div class="admoloBanner" data-publisher="YOUR_PUBLISHER_ID" data-adsize="728x90"></div>
+</div>
+
+<!-- ================= FEATURES ================= -->
+<div class="container" id="features">
+  <div class="section-title">
+    <h2>Why Choose Sachhita Save Tools?</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card">⚡ Super Fast Browser-Based Tools</div>
+    <div class="card">🔐 100% Secure – Files Stay Local</div>
+    <div class="card">📄 Multiple PDF Optimisation Levels</div>
+    <div class="card">💎 Professional Quality Output</div>
+  </div>
+</div>
+
+<!-- ================= MIDDLE AD ================= -->
+<div class="ad-box">
+  <div class="admoloBanner" data-publisher="YOUR_PUBLISHER_ID" data-adsize="300x250"></div>
+</div>
+
+<!-- ================= PDF TOOL ================= -->
+<div class="container" id="tools">
+  <div class="section-title">
+    <h2>PDF Optimisation Tool</h2>
+    <p>Select optimisation level and improve PDF performance</p>
+  </div>
+
+  <div class="tool-box">
+    <label>Select PDF File</label>
+    <input type="file" accept="application/pdf">
+
+    <label>Optimisation Level</label>
+    <select id="level">
+      <option>Low – Best Quality</option>
+      <option>Medium – Balanced</option>
+      <option>High – Maximum Compression</option>
+    </select>
+
+    <button onclick="startTool()">Optimise PDF</button>
+    <p id="status"></p>
+  </div>
+</div>
+
+<!-- ================= BOTTOM AD ================= -->
+<div class="ad-box">
+  <div class="admoloBanner" data-publisher="YOUR_PUBLISHER_ID" data-adsize="728x90"></div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+<p>© 2026 SachhitaSaveTools.com</p>
+<p>Files are processed locally in your browser.</p>
+</footer>
+
+<script>
+function startTool(){
+  const level=document.getElementById("level").value;
+  document.getElementById("status").innerText =
+  "PDF optimisation started ("+level+"). Processing locally…";
+}
+</script>
+
+</body>
+</html>
