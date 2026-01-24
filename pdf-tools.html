@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>All PDF Tools – GitHub Pages Test</title>
+<meta name="description" content="Free PDF tools running on GitHub Pages.">
+<meta name="robots" content="index, follow">
+
+<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+<style>
+body{
+ margin:0;
+ font-family:Arial, sans-serif;
+ background:#f4f6f8;
+}
+.container{
+ max-width:900px;
+ margin:auto;
+ padding:20px;
+}
+.card{
+ background:#fff;
+ padding:20px;
+ border-radius:10px;
+ box-shadow:0 4px 10px rgba(0,0,0,.1);
+ margin-bottom:20px;
+}
+button{
+ padding:10px 15px;
+ background:#2563eb;
+ color:#fff;
+ border:none;
+ border-radius:6px;
+ cursor:pointer;
+}
+input{margin:10px 0;width:100%}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>All PDF Tools (GitHub Pages)</h1>
+
+<div class="card">
+<h2>Image to PDF</h2>
+<input type="file" id="img" accept="image/*">
+<button onclick="imgToPdf()">Convert</button>
+</div>
+
+<div class="card">
+<h2>Merge PDFs</h2>
+<input type="file" id="merge" multiple accept="application/pdf">
+<button onclick="mergePdf()">Merge</button>
+</div>
+
+<p>✅ If you can see this page, GitHub Pages is WORKING.</p>
+</div>
+
+<script>
+async function imgToPdf(){
+ const f=document.getElementById("img").files[0];
+ if(!f) return alert("Select image");
+ const pdf=await PDFLib.PDFDocument.create();
+ const bytes=await f.arrayBuffer();
+ const img=await pdf.embedJpg(bytes).catch(()=>pdf.embedPng(bytes));
+ const page=pdf.addPage([img.width,img.height]);
+ page.drawImage(img,{x:0,y:0,width:img.width,height:img.height});
+ download(pdf,"image.pdf");
+}
+
+async function mergePdf(){
+ const files=document.getElementById("merge").files;
+ if(files.length<2) return alert("Select 2 PDFs");
+ const pdf=await PDFLib.PDFDocument.create();
+ for(const f of files){
+  const d=await PDFLib.PDFDocument.load(await f.arrayBuffer());
+  const pages=await pdf.copyPages(d,d.getPageIndices());
+  pages.forEach(p=>pdf.addPage(p));
+ }
+ download(pdf,"merged.pdf");
+}
+
+async function download(pdf,name){
+ const bytes=await pdf.save();
+ const a=document.createElement("a");
+ a.href=URL.createObjectURL(new Blob([bytes],{type:"application/pdf"}));
+ a.download=name;
+ a.click();
+}
+</script>
+
+</body>
+</html>
 
