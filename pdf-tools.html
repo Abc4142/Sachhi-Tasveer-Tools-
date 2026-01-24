@@ -261,7 +261,43 @@ async function protectPDF(){
  "offers":{"@type":"Offer","price":"0"}
 }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+  const ads = {
+    leaderboard: `
+      <div class="admoloBanner"
+        data-publisher="eyJpdiI6Im9EYmZIaTFqZEtKWFUvcytZKzBJSnc9PSIsInZhbHVlIjoiQWNybTZ5Q2gxOHhlb25panIvNXllZz09IiwibWFjIjoiZDAwMzEzOTU4ZmE5NjU4N2Q2M2JkMDJmMWUwNmM0NjE0NjgwNmJmMGU2MzMyZDJjOThjNzNlMDk1ZDRkNmM1ZCIsInRhZyI6IiJ9"
+        data-adsize="728x90"></div>
+    `,
+    mobile: `
+      <div class="admoloBanner"
+        data-publisher="eyJpdiI6Impoa1g2bDlpcUNiZXRNYkNzVDRvWFE9PSIsInZhbHVlIjoiS0lDaUlpM0NraXFpNFAwSVZ3WDVsdz09IiwibWFjIjoiNzU4ZGM2ODlhNGZjZDU0YjQwOGYxNmI1NWRiNjI1OGZhYjJjZDY2NTBjNjY2MWRhMDEzNjQ0ZjQxNzhmMTE3YyIsInRhZyI6IiJ9"
+        data-adsize="320x180"></div>
+    `,
+    small: `
+      <div class="admoloBanner"
+        data-publisher="eyJpdiI6InZ0UzNtYmJUWGdoMDMrT3FSSVp2N2c9PSIsInZhbHVlIjoiRlo0YUpGY3ZoRmVvK096VUtqcVppQT09IiwibWFjIjoiNTg0MTIzMmIzYzdjMTcyMjUwZDIzN2Y0NzIyYWM2NTg3YzI5Yjc4ODFlMmRlNmJkODU4Mzc0MTEyYjQ0OWRmNSIsInRhZyI6IiJ9"
+        data-adsize="320x100"></div>
+    `,
+    square: `
+      <div class="admoloBanner"
+        data-publisher="eyJpdiI6IlF6YlBZamtPbUVHTjNPNWMwMG5QZmc9PSIsInZhbHVlIjoiK0I3Z2FuTHlsRHFsZjNzVjBCc1B6dz09IiwibWFjIjoiZDc3YzcxNzc1OWUzMzQ2NDBiMjRiOThiOWE5ZTFkZDk1ZmIxZGUzNzg5MTUyNzE0M2U5NGExNTEyNzg5ZDc2OSIsInRhZyI6IiJ9"
+        data-adsize="300x300"></div>
+    `
+  };
+
+  document.querySelectorAll(".ad-slot").forEach(slot => {
+    const type = slot.getAttribute("data-ad");
+    if (ads[type]) {
+      slot.innerHTML = ads[type];
+    }
+  });
+
+});
+</script>
+
+  
 </body>
 </html>
 
