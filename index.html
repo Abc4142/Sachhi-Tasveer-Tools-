@@ -37,6 +37,95 @@ img{max-width:100%;margin-top:10px}
 </head>
 
 <body>
+  <!-- ====== GLOBAL NAVIGATION SYSTEM START ====== -->
+<style>
+/* NAV BAR */
+.main-nav{
+  background:#4f46e5;
+  position:sticky;
+  top:0;
+  z-index:9999;
+  box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+.nav-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 20px;
+}
+.logo{
+  color:#ffffff;
+  font-size:20px;
+  font-weight:700;
+  text-decoration:none;
+}
+.logo span{
+  color:#fde047;
+}
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:18px;
+  margin:0;
+  padding:0;
+}
+.nav-links li a{
+  color:#ffffff;
+  text-decoration:none;
+  font-size:15px;
+  padding:6px 12px;
+  border-radius:6px;
+  transition:.2s;
+}
+.nav-links li a:hover,
+.nav-links li a.active{
+  background:rgba(255,255,255,.25);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav-container{
+    flex-direction:column;
+    gap:10px;
+  }
+  .nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+}
+</style>
+
+<nav class="main-nav">
+  <div class="nav-container">
+
+    <a href="index.html" class="logo">
+      Sachhita<span>Tools</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="index.html">Home</a></li>
+      <li><a href="tools.html" data-page="tools.html">All Tools</a></li>
+      <li><a href="pdf-tools.html" data-page="pdf-tools.html">PDF Tools</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<script>
+/* AUTO ACTIVE PAGE DETECTION */
+(function(){
+  const page = location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".nav-links a").forEach(link=>{
+    if(link.getAttribute("data-page") === page){
+      link.classList.add("active");
+    }
+  });
+})();
+</script>
+<!-- ====== GLOBAL NAVIGATION SYSTEM END ====== -->
+
 
 <header>
 <h1>Sachhita Save Tools</h1>
