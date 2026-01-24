@@ -1,1 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>All PDF Tools Online | Compress, Convert, Merge PDFs Free</title>
+
+<meta name="description" content="Free All-in-One PDF Tools. Compress PDF, Merge PDF, Split PDF, Image to PDF. 100% browser-based, fast & secure.">
+<meta name="keywords" content="pdf tools, compress pdf, merge pdf, split pdf, image to pdf">
+<meta name="robots" content="index, follow">
+
+<!-- Schema -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"SoftwareApplication",
+ "name":"All PDF Tools",
+ "applicationCategory":"UtilityApplication",
+ "operatingSystem":"Web",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
+
+<!-- PDF Engine -->
+<script defer src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+<style>
+:root{
+ --bg:#f4f6f8;
+ --card:#ffffff;
+ --text:#111;
+ --accent:#2563eb;
+}
+body.dark{
+ --bg:#0f172a;
+ --card:#1e293b;
+ --text:#f1f5f9;
+}
+body{
+ margin:0;
+ font-family:system-ui,Arial;
+ background:var(--bg);
+ color:var(--text);
+}
+header,footer{
+ background:var(--card);
+ box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+.container{
+ max-width:1200px;
+ margin:auto;
+ padding:15px;
+}
+h1,h2,h3{margin:0 0 10px}
+.toggle{
+ float:right;
+ cursor:pointer;
+ font-size:14px;
+}
+.tools{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ gap:15px;
+}
+.card{
+ background:var(--card);
+ padding:15px;
+ border-radius:14px;
+ box-shadow:0 8px 20px rgba(0,0,0,.1);
+}
+button{
+ width:100%;
+ padding:10px;
+ background:var(--accent);
+ color:#fff;
+ border:none;
+ border-radius:8px;
+ cursor:pointer;
+}
+input{
+ width:100%;
+ margin:8px 0;
+}
+.ad{
+ margin:15px 0;
+ text-align:center;
+}
+footer p{
+ text-align:center;
+ margin:10px 0 0;
+ font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<h1>All PDF Tools</h1>
+<span class="toggle" onclick="toggleMode()">🌙 Dark Mode</span>
+
+<div class="ad" id="ad-header"></div>
+</div>
+</header>
+
+<main class="container">
+
+<h2>Free PDF Tools (No API)</h2>
+
+<div class="tools">
+
+<div class="card">
+<h3>Image to PDF</h3>
+<input type="file" id="imgPdf" accept="image/*">
+<button onclick="imageToPDF()">Convert</button>
+</div>
+
+<div class="card">
+<h3>Merge PDFs</h3>
+<input type="file" id="mergePdf" multiple accept="application/pdf">
+<button onclick="mergePDF()">Merge</button>
+</div>
+
+<div class="card">
+<h3>Split PDF</h3>
+<input type="file" id="splitPdf" accept="application/pdf">
+<input type="number" id="splitPage" placeholder="Page number">
+<button onclick="splitPDF()">Split</button>
+</div>
+
+<div class="card">
+<h3>Compress PDF</h3>
+<input type="file" id="compressPdf" accept="application/pdf">
+<button onclick="compressPDF()">Compress</button>
+</div>
+
+<div class="card">
+<h3>Rotate PDF</h3>
+<input type="file" id="rotatePdf" accept="application/pdf">
+<button onclick="rotatePDF()">Rotate</button>
+</div>
+
+<div class="card">
+<h3>Extract Pages</h3>
+<input type="file" id="extractPdf" accept="application/pdf">
+<input type="text" id="extractPages" placeholder="e.g. 1,3,5">
+<button onclick="extractPDF()">Extract</button>
+</div>
+
+<div class="card">
+<h3>PDF Info</h3>
+<input type="file" id="infoPdf" accept="application/pdf">
+<button onclick="pdfInfo()">Check</button>
+<div id="infoResult"></div>
+</div>
+
+</div>
+
+<div class="ad" id="ad-sidebar"></div>
+
+</main>
+
+<footer>
+<div class="container">
+<div class="ad" id="ad-footer"></div>
+<p>© 2026 All PDF Tools – Fast • Secure • Free</p>
+</div>
+</footer>
+
+<script>
+function toggleMode(){
+ document.body.classList.toggle("dark");
+}
+
+/* ---------- PDF FUNCTIONS ---------- */
+
+async function imageToPDF(){
+ const f=imgPdf.files[0];
+ if(!f)return alert("Select image");
+ const pdf=await PDFLib.PDFDocument.create();
+ const bytes=await f.arrayBuffer();
+ const img=await pdf.embedJpg(bytes).catch(()=>pdf.embedPng(bytes));
+ const p=pdf.addPage([img.width,img.height]);
+ p.drawImage(img,{x:0,y:0,width:img.width,height:img.height});
+ download(pdf,"image-to-pdf.pdf");
+}
+
+async function mergePDF(){
+ const files=mergePdf.files;
+ if(files.length<2)return alert("Select at least 2 PDFs");
+ const pdf=await PDFLib.PDFDocument.create();
+ for(const f of files){
+  const d=await PDFLib.PDFDocument.load(await f.arrayBuffer());
+  const pages=await pdf.copyPages(d,d.getPageIndices());
+  pages.forEach(p=>pdf.addPage(p));
+ }
+ download(pdf,"merged.pdf");
+}
+
+async function splitPDF(){
+ const f=splitPdf.files[0];
+ const n=parseInt(splitPage.value)-1;
+ if(!f||isNaN(n))return alert("Enter page number");
+ const d=await PDFLib.PDFDocument.load(await f.arrayBuffer());
+ const pdf=await PDFLib.PDFDocument.create();
+ const [p]=await pdf.copyPages(d,[n]);
+ pdf.addPage(p);
+ download(pdf,"split.pdf");
+}
+
+async function compressPDF(){
+ const f=compressPdf.files[0];
+ if(!f)return;
+ const pdf=await PDFLib.PDFDocument.load(await f.arrayBuffer());
+ download(pdf,"compressed.pdf");
+}
+
+async function rotatePDF(){
+ const f=rotatePdf.files[0];
+ if(!f)return;
+ const pdf=await PDFLib.PDFDocument.load(await f.arrayBuffer());
+ pdf.getPages().forEach(p=>p.setRotation(PDFLib.degrees(90)));
+ download(pdf,"rotated.pdf");
+}
+
+async function extractPDF(){
+ const f=extractPdf.files[0];
+ if(!f)return;
+ const pages=extractPages.value.split(",").map(n=>parseInt(n)-1);
+ const d=await PDFLib.PDFDocument.load(await f.arrayBuffer());
+ const pdf=await PDFLib.PDFDocument.create();
+ const p=await pdf.copyPages(d,pages);
+ p.forEach(x=>pdf.addPage(x));
+ download(pdf,"extracted.pdf");
+}
+
+async function pdfInfo(){
+ const f=infoPdf.files[0];
+ if(!f)return;
+ const d=await PDFLib.PDFDocument.load(await f.arrayBuffer());
+ infoResult.innerText="Total Pages: "+d.getPageCount();
+}
+
+async function download(pdf,name){
+ const bytes=await pdf.save();
+ const a=document.createElement("a");
+ a.href=URL.createObjectURL(new Blob([bytes],{type:"application/pdf"}));
+ a.download=name;
+ a.click();
+}
+
+/* ---------- ADMolo ADS (SAFE LOAD) ---------- */
+window.addEventListener("load",()=>{
+ const ads=[
+  {id:"ad-header",size:"728x90",pub:"eyJpdiI6Im9EYmZIaTFqZEtKWFUvcytZKzBJSnc9PSIsInZhbHVlIjoiQWNybTZ5Q2gxOHhlb25panIvNXllZz09IiwibWFjIjoiZDAwMzEzOTU4ZmE5NjU4N2Q2M2JkMDJmMWUwNmM0NjE0NjgwNmJmMGU2MzMyZDJjOThjNzNlMDk1ZDRkNmM1ZCIsInRhZyI6IiJ9"},
+  {id:"ad-sidebar",size:"320x180",pub:"eyJpdiI6Impoa1g2bDlpcUNiZXRNYkNzVDRvWFE9PSIsInZhbHVlIjoiS0lDaUlpM0NraXFpNFAwSVZ3WDVsdz09IiwibWFjIjoiNzU4ZGM2ODlhNGZjZDU0YjQwOGYxNmI1NWRiNjI1OGZhYjJjZDY2NTBjNjY2MWRhMDEzNjQ0ZjQxNzhmMTE3YyIsInRhZyI6IiJ9"},
+  {id:"ad-footer",size:"300x300",pub:"eyJpdiI6IlF6YlBZamtPbUVHTjNPNWMwMG5QZmc9PSIsInZhbHVlIjoiK0I3Z2FuTHlsRHFsZjNzVjBCc1B6dz09IiwibWFjIjoiZDc3YzcxNzc1OWUzMzQ2NDBiMjRiOThiOWE5ZTFkZDk1ZmIxZGUzNzg5MTUyNzE0M2U5NGExNTEyNzg5ZDc2OSIsInRhZyI6IiJ9"}
+ ];
+ ads.forEach(a=>{
+  document.getElementById(a.id).innerHTML=
+   `<div class="admoloBanner" data-publisher="${a.pub}" data-adsize="${a.size}"></div>`;
+ });
+ const s=document.createElement("script");
+ s.src="https://admolo.com/banner.js";
+ s.async=true;
+ document.body.appendChild(s);
+});
+</script>
+
+</body>
+</html>
 
