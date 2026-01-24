@@ -1,1 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>All PDF Tools – Sachhita Save Tools</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="Free online PDF tools – Merge, Split, Compress, Image to PDF, Protect & Rotate PDF. 100% client-side.">
+<meta name="keywords" content="PDF Tools, Merge PDF, Split PDF, Compress PDF, Image to PDF">
+<meta name="author" content="Sachhita Save Tools">
+
+<!-- PDF LIB -->
+<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+<style>
+:root{
+  --bg:#f8fafc;
+  --text:#111827;
+  --card:#ffffff;
+}
+[data-theme="dark"]{
+  --bg:#0f172a;
+  --text:#e5e7eb;
+  --card:#020617;
+}
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+header{
+  padding:20px;
+  text-align:center;
+  background:#2563eb;
+  color:#fff;
+}
+header button{
+  padding:8px 14px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+main{
+  max-width:1000px;
+  margin:auto;
+  padding:20px;
+}
+.tool-box{
+  background:var(--card);
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:25px;
+  box-shadow:0 4px 15px rgba(0,0,0,.05);
+}
+.tool-box h2{
+  margin-top:0;
+}
+input,button,select{
+  padding:10px;
+  margin:6px 0;
+  width:100%;
+}
+button{
+  background:#22c55e;
+  border:none;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
+}
+button:hover{opacity:.9}
+.ad-box{
+  margin:25px auto;
+  max-width:100%;
+  overflow:hidden;
+  text-align:center;
+}
+footer{
+  text-align:center;
+  padding:15px;
+  font-size:14px;
+  background:#1f2937;
+  color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📄 Sachhita Save Tools – All PDF Tools</h1>
+  <button onclick="toggleDark()">🌙 Dark Mode</button>
+</header>
+
+<main>
+
+<!-- 🔹 AD TOP -->
+<div class="ad-box">
+  <!-- 👉 अपना ADMolo / Ad code यहां डालें -->
+</div>
+
+<!-- MERGE PDF -->
+<div class="tool-box">
+<h2>Merge PDF</h2>
+<input type="file" id="mergeFiles" accept="application/pdf" multiple>
+<button onclick="mergePDF()">Merge Now</button>
+</div>
+
+<!-- SPLIT PDF -->
+<div class="tool-box">
+<h2>Split PDF (All Pages)</h2>
+<input type="file" id="splitFile" accept="application/pdf">
+<button onclick="splitPDF()">Split Now</button>
+</div>
+
+<!-- COMPRESS PDF -->
+<div class="tool-box">
+<h2>Compress PDF (Basic)</h2>
+<input type="file" id="compressFile" accept="application/pdf">
+<button onclick="compressPDF()">Compress Now</button>
+</div>
+
+<!-- IMAGE TO PDF -->
+<div class="tool-box">
+<h2>Image to PDF</h2>
+<input type="file" id="imgFiles" accept="image/*" multiple>
+<button onclick="imgToPDF()">Convert to PDF</button>
+</div>
+
+<!-- ROTATE PDF -->
+<div class="tool-box">
+<h2>Rotate PDF</h2>
+<input type="file" id="rotateFile" accept="application/pdf">
+<select id="rotateDeg">
+  <option value="90">90°</option>
+  <option value="180">180°</option>
+  <option value="270">270°</option>
+</select>
+<button onclick="rotatePDF()">Rotate</button>
+</div>
+
+<!-- PROTECT PDF -->
+<div class="tool-box">
+<h2>Password Protect PDF</h2>
+<input type="file" id="protectFile" accept="application/pdf">
+<input type="password" id="pdfPass" placeholder="Enter password">
+<button onclick="protectPDF()">Protect</button>
+</div>
+
+<!-- 🔹 AD BOTTOM -->
+<div class="ad-box">
+  <!-- 👉 अपना ADMolo / Ad code यहां डालें -->
+</div>
+
+</main>
+
+<footer>
+© 2026 SachhitaSaveTools.com – Free & Secure PDF Tools
+</footer>
+
+<!-- ================= JS ENGINE ================= -->
+
+<script>
+/* DARK MODE */
+function toggleDark(){
+ const root=document.documentElement;
+ const t=root.getAttribute("data-theme")==="dark"?"light":"dark";
+ root.setAttribute("data-theme",t);
+ localStorage.setItem("theme",t);
+}
+document.documentElement.setAttribute(
+ "data-theme",
+ localStorage.getItem("theme") || "light"
+);
+
+/* DOWNLOAD */
+function download(bytes,name){
+ const a=document.createElement("a");
+ a.href=URL.createObjectURL(new Blob([bytes]));
+ a.download=name;
+ a.click();
+}
+
+/* MERGE */
+async function mergePDF(){
+ const files=document.getElementById("mergeFiles").files;
+ if(!files.length) return alert("Select PDF files");
+ const pdf=await PDFLib.PDFDocument.create();
+ for(const f of files){
+  const d=await PDFLib.PDFDocument.load(await f.arrayBuffer());
+  const pages=await pdf.copyPages(d,d.getPageIndices());
+  pages.forEach(p=>pdf.addPage(p));
+ }
+ download(await pdf.save(),"merged.pdf");
+}
+
+/* SPLIT */
+async function splitPDF(){
+ const f=document.getElementById("splitFile").files[0];
+ if(!f) return alert("Select PDF");
+ const d=await PDFLib.PDFDocument.load(await f.arrayBuffer());
+ const pages=d.getPages();
+ for(let i=0;i<pages.length;i++){
+  const p=await PDFLib.PDFDocument.create();
+  const [pg]=await p.copyPages(d,[i]);
+  p.addPage(pg);
+  download(await p.save(),`page-${i+1}.pdf`);
+ }
+}
+
+/* COMPRESS (basic re-save) */
+async function compressPDF(){
+ const f=document.getElementById("compressFile").files[0];
+ if(!f) return alert("Select PDF");
+ const d=await PDFLib.PDFDocument.load(await f.arrayBuffer());
+ download(await d.save({useObjectStreams:true}),"compressed.pdf");
+}
+
+/* IMAGE TO PDF */
+async function imgToPDF(){
+ const files=document.getElementById("imgFiles").files;
+ if(!files.length) return alert("Select images");
+ const pdf=await PDFLib.PDFDocument.create();
+ for(const f of files){
+  const bytes=await f.arrayBuffer();
+  const img=f.type.includes("png")?await pdf.embedPng(bytes):await pdf.embedJpg(bytes);
+  const page=pdf.addPage([img.width,img.height]);
+  page.drawImage(img,{x:0,y:0,width:img.width,height:img.height});
+ }
+ download(await pdf.save(),"images.pdf");
+}
+
+/* ROTATE */
+async function rotatePDF(){
+ const f=document.getElementById("rotateFile").files[0];
+ if(!f) return alert("Select PDF");
+ const deg=parseInt(document.getElementById("rotateDeg").value);
+ const d=await PDFLib.PDFDocument.load(await f.arrayBuffer());
+ d.getPages().forEach(p=>p.setRotation(PDFLib.degrees(deg)));
+ download(await d.save(),"rotated.pdf");
+}
+
+/* PROTECT */
+async function protectPDF(){
+ const f=document.getElementById("protectFile").files[0];
+ const pass=document.getElementById("pdfPass").value;
+ if(!f||!pass) return alert("PDF + Password required");
+ const d=await PDFLib.PDFDocument.load(await f.arrayBuffer());
+ download(await d.save({userPassword:pass,ownerPassword:pass}),"protected.pdf");
+}
+</script>
+
+<!-- SEO SCHEMA -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"SoftwareApplication",
+ "name":"Sachhita Save Tools PDF",
+ "applicationCategory":"UtilityApplication",
+ "operatingSystem":"Web",
+ "offers":{"@type":"Offer","price":"0"}
+}
+</script>
+
+</body>
+</html>
 
