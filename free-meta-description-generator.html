@@ -1,1 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title id="metaTitle">Free Meta Description Generator | SEO Tool</title>
+<meta name="description" id="metaDesc" content="Free Meta Description Generator Tool. Create SEO-friendly meta descriptions instantly.">
+<meta name="keywords" id="metaKeys" content="meta description generator, seo tool, free seo tools">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://yourdomain.com/free-meta-description-generator.html">
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SoftwareApplication",
+  "name":"Free Meta Description Generator",
+  "applicationCategory":"SEOApplication",
+  "operatingSystem":"Web",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#111827;
+  --card:#f3f4f6;
+  --primary:#2563eb;
+}
+.dark{
+  --bg:#0f172a;
+  --text:#e5e7eb;
+  --card:#1e293b;
+  --primary:#38bdf8;
+}
+*{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto}
+body{margin:0;background:var(--bg);color:var(--text)}
+header{background:var(--card);padding:15px}
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+button{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:15px;
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:15px;
+}
+@media(max-width:900px){
+  .container{grid-template-columns:1fr}
+}
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:14px;
+}
+input,select{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+.ad-box{
+  background:#00000012;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:15px;
+  text-align:center;
+}
+.result{
+  background:#00000012;
+  padding:15px;
+  border-radius:10px;
+}
+footer{
+  background:var(--card);
+  padding:20px;
+  text-align:center;
+}
+.social a{
+  margin:5px;
+  color:var(--primary);
+  font-weight:600;
+  text-decoration:none;
+}
+img.hero{
+  width:100%;
+  border-radius:12px;
+  margin-bottom:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <h2 id="logoText">SEO Meta Generator</h2>
+    <div>
+      <button onclick="toggleLang()">EN / हिंदी</button>
+      <button onclick="toggleMode()">🌙</button>
+    </div>
+  </div>
+</header>
+
+<!-- HEADER AD -->
+<div class="ad-box">
+  Header Advertisement (Paste Ad Code Here)
+</div>
+
+<div class="container">
+
+<!-- MAIN TOOL -->
+<div class="card">
+  <h1 id="titleText"></h1>
+  <p id="descText"></p>
+
+  <img class="hero" src="https://dummyimage.com/1000x350/2563eb/ffffff&text=Free+Meta+Description+Generator" alt="Free Meta Description Generator Tool">
+
+  <input id="pageTitle">
+  <input id="keyword">
+
+  <select id="country">
+    <option value="India">India</option>
+    <option value="United States">United States</option>
+  </select>
+
+  <button id="genBtn" onclick="generateMeta()"></button>
+
+  <div id="output" class="result" style="display:none">
+    <h3 id="resultTitle"></h3>
+    <p id="metaText"></p>
+
+    <button onclick="copyText()" id="copyBtn"></button>
+    <button onclick="downloadText()" id="downBtn"></button>
+
+    <div class="social">
+      <a id="wa" target="_blank">WhatsApp</a>
+      <a id="tw" target="_blank">Twitter</a>
+    </div>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<div>
+  <div class="ad-box">Sidebar Advertisement</div>
+
+  <div class="ad-box">
+    <button onclick="downloadAd()">Download Ad Frame</button>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  <div class="ad-box">Footer Advertisement</div>
+  <p>© 2026 Free Meta Description Generator</p>
+</footer>
+
+<script>
+let lang="en";
+
+const text={
+en:{
+logo:"SEO Meta Generator",
+title:"Free Meta Description Generator",
+desc:"Generate SEO-friendly meta descriptions instantly for India & US websites.",
+page:"Page Title",
+key:"Main Keyword",
+gen:"Generate",
+res:"Meta Description",
+copy:"Copy",
+down:"Download",
+metaTitle:"Free Meta Description Generator | SEO Tool",
+metaDesc:"Free Meta Description Generator Tool. Create SEO-friendly meta descriptions instantly.",
+metaKeys:"meta description generator, seo tool, free seo tools"
+},
+hi:{
+logo:"SEO मेटा जनरेटर",
+title:"फ्री मेटा डिस्क्रिप्शन जनरेटर",
+desc:"भारत और यूएस वेबसाइट के लिए SEO मेटा डिस्क्रिप्शन तुरंत बनाएं।",
+page:"पेज का टाइटल",
+key:"मुख्य कीवर्ड",
+gen:"जनरेट करें",
+res:"मेटा डिस्क्रिप्शन",
+copy:"कॉपी",
+down:"डाउनलोड",
+metaTitle:"फ्री मेटा डिस्क्रिप्शन जनरेटर | SEO टूल",
+metaDesc:"फ्री मेटा डिस्क्रिप्शन जनरेटर टूल। SEO के लिए तुरंत मेटा डिस्क्रिप्शन बनाएं।",
+metaKeys:"मेटा डिस्क्रिप्शन जनरेटर, SEO टूल, फ्री SEO टूल"
+}
+};
+
+function applyLang(){
+  const t=text[lang];
+  document.documentElement.lang = lang==="hi" ? "hi-IN" : "en-US";
+  logoText.innerText=t.logo;
+  titleText.innerText=t.title;
+  descText.innerText=t.desc;
+  pageTitle.placeholder=t.page;
+  keyword.placeholder=t.key;
+  genBtn.innerText=t.gen;
+  resultTitle.innerText=t.res;
+  copyBtn.innerText=t.copy;
+  downBtn.innerText=t.down;
+  metaTitle.innerText=t.metaTitle;
+  metaDesc.content=t.metaDesc;
+  metaKeys.content=t.metaKeys;
+}
+
+function autoDetect(){
+  const bl=navigator.language||"";
+  const tz=Intl.DateTimeFormat().resolvedOptions().timeZone;
+  if(bl.startsWith("hi") || tz.includes("Kolkata")){
+    lang="hi";
+  }else{
+    lang="en";
+  }
+  applyLang();
+}
+
+function toggleLang(){
+  lang = lang==="en" ? "hi" : "en";
+  applyLang();
+}
+
+function toggleMode(){
+  document.body.classList.toggle("dark");
+}
+
+function generateMeta(){
+  const title=pageTitle.value.trim();
+  const key=keyword.value.trim();
+  const country=document.getElementById("country").value;
+
+  if(!title || !key){
+    alert("Please fill all fields");
+    return;
+  }
+
+  const meta = lang==="en"
+  ? `Discover ${title}. Best ${key} solution in ${country}. SEO-optimised, fast and free.`
+  : `${title} खोज रहे हैं? ${country} में सर्वश्रेष्ठ ${key} समाधान – तेज़, SEO फ्रेंडली और बिल्कुल मुफ्त।`;
+
+  metaText.innerText=meta;
+  output.style.display="block";
+
+  wa.href=`https://api.whatsapp.com/send?text=${encodeURIComponent(meta)}`;
+  tw.href=`https://twitter.com/intent/tweet?text=${encodeURIComponent(meta)}`;
+}
+
+function copyText(){
+  navigator.clipboard.writeText(metaText.innerText);
+  alert("Copied successfully");
+}
+
+function downloadText(){
+  const blob=new Blob([metaText.innerText],{type:"text/plain"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="meta-description.txt";
+  a.click();
+}
+
+function downloadAd(){
+  const ad=`<div style="width:300px;height:250px;border:1px solid #ccc;text-align:center">
+<h3>Advertisement</h3>
+<p>Paste Ad Code Here</p>
+</div>`;
+  const blob=new Blob([ad],{type:"text/html"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="ad-frame.html";
+  a.click();
+}
+
+autoDetect();
+</script>
+
+</body>
+</html>
 
