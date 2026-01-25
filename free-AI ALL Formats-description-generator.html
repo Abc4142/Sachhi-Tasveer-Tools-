@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free AI All Formats Description Generator Tool</title>
+
+<meta name="description" content="Free AI All Formats Description Generator Tool. Generate SEO, Product, App, YouTube, Website & Social Media descriptions instantly. No API required.">
+<meta name="keywords" content="ai description generator, free ai tool, seo description generator, product description ai">
+<meta name="robots" content="index, follow">
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"SoftwareApplication",
+ "name":"AI All Formats Description Generator Tool",
+ "applicationCategory":"AI Tool",
+ "operatingSystem":"Web",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
+
+<style>
+:root{
+--bg:#ffffff;--text:#111827;--card:#f3f4f6;--primary:#2563eb;
+}
+.dark{
+--bg:#0f172a;--text:#e5e7eb;--card:#1e293b;--primary:#38bdf8;
+}
+*{box-sizing:border-box;font-family:system-ui}
+body{margin:0;background:var(--bg);color:var(--text)}
+header{background:var(--card);padding:15px}
+.wrap{max-width:1200px;margin:auto;padding:15px}
+.flex{display:grid;grid-template-columns:1fr 320px;gap:15px}
+@media(max-width:900px){.flex{grid-template-columns:1fr}}
+.card{background:var(--card);padding:20px;border-radius:14px}
+h1,h2,h3{margin-top:0}
+input,select{
+width:100%;padding:10px;margin-bottom:10px;border-radius:8px;border:1px solid #ccc
+}
+button{
+background:var(--primary);color:#fff;border:none;
+padding:10px 15px;border-radius:8px;cursor:pointer
+}
+.result{background:#00000015;padding:15px;border-radius:10px;margin-top:15px}
+.ad{background:#00000015;padding:15px;border-radius:12px;margin-bottom:15px;text-align:center}
+.social a{margin:5px;display:inline-block;color:var(--primary);font-weight:600;text-decoration:none}
+footer{background:var(--card);padding:20px;text-align:center;margin-top:20px}
+.toggle{float:right}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="wrap">
+<h2>AI Description Generator
+<button class="toggle" onclick="toggleMode()">Light / Dark</button>
+</h2>
+</div>
+</header>
+
+<!-- HEADER AD : 728x90 -->
+<div class="ad">
+<div class="admoloBanner"
+data-publisher="eyJpdiI6IkZKak1FTUI5SDZnTGd0MkV1TFJ3ekE9PSIsInZhbHVlIjoiZ2Y0SWRNZ21jemh2RURPVml3NzFhQT09IiwibWFjIjoiODk0OGZlNDU0NGZkNjY1NDVhMGM5OGZhZDVjZThlZGI1NmI4YTliZDE2M2QxZjU5YjIyM2I2ZGQ0MGYwYzczZiIsInRhZyI6IiJ9"
+data-adsize="728x90"></div>
+</div>
+
+<div class="wrap flex">
+
+<!-- MAIN TOOL -->
+<div class="card">
+<h1>Free AI All Formats Description Generator</h1>
+<p>Generate high-quality AI-style descriptions for all formats. 100% free, no API.</p>
+
+<input type="text" id="topic" placeholder="Enter Topic / Product / App Name">
+<input type="text" id="keyword" placeholder="Main Keyword (optional)">
+
+<select id="format">
+<option value="SEO">SEO Description</option>
+<option value="Product">Product Description</option>
+<option value="App">App Description</option>
+<option value="YouTube">YouTube Description</option>
+<option value="Social">Social Media Caption</option>
+<option value="Website">Website About Description</option>
+<option value="Short">Short Description</option>
+<option value="Long">Long Detailed Description</option>
+</select>
+
+<button onclick="generate()">Generate Description</button>
+
+<!-- INLINE / MOBILE AD -->
+<div class="ad">
+<div class="admoloBanner"
+data-publisher="eyJpdiI6Ik5VWHRSR2ZnMCs3L2ZURHIza3k3UGc9PSIsInZhbHVlIjoicVhJdEdrQ2tCMmxDYTRCRFJzKzlQUT09IiwibWFjIjoiYWEyZjg1Yjc5YmQ0Mzg3NDFhZDI4NGE0NDIzNjY2YzFmMWNhYWI5ZTc5ODM2ZWY0NWI2NjRhNDU0NzFlNmM5ZiIsInRhZyI6IiJ9"
+data-adsize="320x180"></div>
+</div>
+
+<div id="output" class="result" style="display:none">
+<h3>Generated Description</h3>
+<p id="text"></p>
+
+<button onclick="copyText()">Copy</button>
+<button onclick="downloadText()">Download</button>
+
+<div class="social">
+<p>Share:</p>
+<a id="fb" target="_blank">Facebook</a>
+<a id="tw" target="_blank">Twitter</a>
+<a id="wa" target="_blank">WhatsApp</a>
+</div>
+</div>
+</div>
+
+<!-- SIDEBAR -->
+<div>
+<div class="ad">
+<div class="admoloBanner"
+data-publisher="eyJpdiI6IkRueWRxMExxUDVmTXRlNWVNMkppY2c9PSIsInZhbHVlIjoiU2hScUJGZGtrNDEwMEt6MVdGc2JhUT09IiwibWFjIjoiNjVlZTA3MzdlOTg0YjU2YmViOTJhM2M4MmZjYmM4MmQ1ODRiZjYyMTI5NzAwNjIwOGVhZTI4MzU5YWI2NDYyNiIsInRhZyI6IiJ9"
+data-adsize="300x300"></div>
+</div>
+
+<div class="ad">
+<h3>Download Ad Frame</h3>
+<button onclick="downloadAd()">Download</button>
+</div>
+</div>
+
+</div>
+
+<footer>
+<div class="ad">Footer Advertisement Area</div>
+<p>© 2026 AI All Formats Description Generator Tool</p>
+</footer>
+
+<!-- ADMolo Script (Only Once) -->
+<script src="https://admolo.com/banner.js"></script>
+
+<script>
+function toggleMode(){document.body.classList.toggle("dark");}
+
+function generate(){
+const topic=document.getElementById("topic").value.trim();
+const keyword=document.getElementById("keyword").value.trim();
+const format=document.getElementById("format").value;
+
+if(!topic){alert("Enter topic");return;}
+
+let text="";
+switch(format){
+case "SEO":
+text=`${topic} is a powerful solution designed to deliver the best results for ${keyword||topic}. SEO-optimised, fast, reliable and user-friendly.`;
+break;
+case "Product":
+text=`${topic} is a high-quality product built for modern needs. Durable, affordable and performance-focused.`;
+break;
+case "App":
+text=`${topic} is a smart and easy-to-use app that improves productivity with a clean interface and powerful features.`;
+break;
+case "YouTube":
+text=`In this video, we explore ${topic} and explain everything you need to know. Watch till the end for helpful insights.`;
+break;
+case "Social":
+text=`Discover ${topic}! 🚀 Simple, powerful and effective. Try it today!`;
+break;
+case "Website":
+text=`${topic} is a modern platform focused on quality, performance and user satisfaction.`;
+break;
+case "Short":
+text=`${topic} – simple, smart and effective.`;
+break;
+case "Long":
+text=`${topic} is a comprehensive solution designed for both beginners and professionals. It offers advanced features, smooth performance and reliable results.`;
+break;
+}
+
+document.getElementById("text").innerText=text;
+document.getElementById("output").style.display="block";
+
+document.getElementById("fb").href=`https://www.facebook.com/sharer/sharer.php?quote=${encodeURIComponent(text)}`;
+document.getElementById("tw").href=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+document.getElementById("wa").href=`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+}
+
+function copyText(){
+navigator.clipboard.writeText(document.getElementById("text").innerText);
+alert("Copied");
+}
+
+function downloadText(){
+const blob=new Blob([document.getElementById("text").innerText],{type:"text/plain"});
+const a=document.createElement("a");
+a.href=URL.createObjectURL(blob);
+a.download="ai-description.txt";
+a.click();
+}
+
+function downloadAd(){
+const html=`<div style="width:300px;height:250px;border:1px solid #ccc;text-align:center">
+<h3>Advertisement</h3><p>Paste Ad Code Here</p></div>`;
+const a=document.createElement("a");
+a.href=URL.createObjectURL(new Blob([html],{type:"text/html"}));
+a.download="ad-frame.html";
+a.click();
+}
+</script>
+
+</body>
+</html>
