@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Free Keyword Density Checker Tool Online</title>
+<meta name="description" content="Free Keyword Density Checker Tool. Analyse keyword frequency and density for text, articles, HTML and blog content. No API required.">
+<meta name="keywords" content="keyword density checker, seo keyword tool, keyword frequency checker">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;margin:0;padding:0}
+.container{max-width:1000px;margin:auto;padding:20px}
+h1{text-align:center;color:#222}
+textarea{width:100%;height:220px;padding:12px;font-size:15px}
+button{padding:12px 20px;background:#007bff;color:#fff;border:none;cursor:pointer;margin-top:10px}
+button:hover{background:#0056b3}
+table{width:100%;border-collapse:collapse;margin-top:20px}
+th,td{border:1px solid #ddd;padding:10px;text-align:center}
+th{background:#222;color:#fff}
+.format-box{margin:10px 0}
+.footer{text-align:center;font-size:13px;color:#666;margin-top:30px}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>Free Keyword Density Checker Tool</h1>
+
+<p>Analyse keyword density for <b>Text, Blog Posts, HTML Content & Articles</b> – 100% Free, No API.</p>
+
+<div class="format-box">
+<label><b>Select Content Format:</b></label><br>
+<select id="format">
+<option value="text">Plain Text / Article</option>
+<option value="html">HTML Source Code</option>
+</select>
+</div>
+
+<textarea id="content" placeholder="Paste your content here..."></textarea>
+
+<button onclick="checkDensity()">Check Keyword Density</button>
+
+<div id="result"></div>
+
+<div class="footer">
+© 2026 Free SEO Tools | Keyword Density Checker
+</div>
+
+</div>
+
+<script>
+const stopWords = ["the","and","is","in","to","of","for","on","with","as","by","at","from","or","an","be","this","that"];
+
+function cleanText(text){
+  return text.toLowerCase()
+  .replace(/<[^>]*>/g,"")
+  .replace(/[^a-z0-9\s]/g,"")
+  .replace(/\s+/g," ")
+  .trim();
+}
+
+function getKeywords(words,n){
+  let phrases = {};
+  for(let i=0;i<=words.length-n;i++){
+    let phrase = words.slice(i,i+n).join(" ");
+    if(stopWords.includes(phrase)) continue;
+    phrases[phrase]=(phrases[phrase]||0)+1;
+  }
+  return phrases;
+}
+
+function checkDensity(){
+  let raw = document.getElementById("content").value;
+  let format = document.getElementById("format").value;
+  if(raw.trim()===""){alert("Please enter content");return;}
+
+  let text = cleanText(raw);
+  let words = text.split(" ");
+  let totalWords = words.length;
+
+  let oneWord = getKeywords(words,1);
+  let twoWord = getKeywords(words,2);
+  let threeWord = getKeywords(words,3);
+
+  function buildTable(data,title){
+    let rows="";
+    Object.entries(data)
+    .sort((a,b)=>b[1]-a[1])
+    .slice(0,15)
+    .forEach(([k,v])=>{
+      let density=((v/totalWords)*100).toFixed(2);
+      rows+=`<tr><td>${k}</td><td>${v}</td><td>${density}%</td></tr>`;
+    });
+
+    return `
+    <h3>${title}</h3>
+    <table>
+    <tr><th>Keyword</th><th>Count</th><th>Density</th></tr>
+    ${rows}
+    </table>`;
+  }
+
+  document.getElementById("result").innerHTML=
+    `<p><b>Total Words:</b> ${totalWords}</p>`+
+    buildTable(oneWord,"Single Keywords")+
+    buildTable(twoWord,"2-Word Phrases")+
+    buildTable(threeWord,"3-Word Phrases");
+}
+</script>
+
+</body>
+</html>
 
