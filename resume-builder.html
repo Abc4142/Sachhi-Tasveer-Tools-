@@ -1,1 +1,178 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Resume Builder – Pro Download</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f2f2f2;
+  margin:0;
+  padding:10px;
+}
+#rbTool{
+  max-width:820px;
+  margin:auto;
+  background:#fff;
+  border-radius:16px;
+  padding:14px;
+}
+.header{
+  background:#0066ff;
+  color:#fff;
+  padding:16px;
+  border-radius:14px;
+  text-align:center;
+  font-size:20px;
+  font-weight:bold;
+}
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:12px;
+}
+input,textarea{
+  width:100%;
+  padding:9px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:14px;
+}
+textarea{resize:none;height:90px}
+.preview{
+  background:#fafafa;
+  border:1px dashed #aaa;
+  padding:12px;
+  border-radius:12px;
+  font-size:14px;
+}
+.preview h3{margin:0 0 5px}
+.btn{
+  margin-top:10px;
+  background:#00e676;
+  border:none;
+  padding:12px;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  width:100%;
+}
+.payBox{
+  margin-top:12px;
+  background:#f9f9f9;
+  padding:12px;
+  border-radius:12px;
+}
+.prices{
+  display:flex;
+  gap:8px;
+}
+.priceBtn{
+  flex:1;
+  background:#111;
+  color:#fff;
+  padding:10px;
+  border-radius:10px;
+  text-align:center;
+  cursor:pointer;
+}
+.admin{
+  margin-top:10px;
+  font-size:12px;
+  text-align:center;
+  color:#555;
+}
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="rbTool">
+  <div class="header">Professional Resume Builder (India)</div>
+
+  <div class="grid">
+    <div>
+      <input id="name" placeholder="Full Name">
+      <input id="email" placeholder="Email">
+      <input id="phone" placeholder="Mobile Number">
+      <input id="skill" placeholder="Key Skills (comma separated)">
+      <textarea id="exp" placeholder="Work Experience"></textarea>
+      <textarea id="edu" placeholder="Education"></textarea>
+      <button class="btn" onclick="generate()">Preview Resume</button>
+    </div>
+
+    <div class="preview" id="preview">
+      <b>Resume Preview</b><br>
+      Fill details & click preview
+    </div>
+  </div>
+
+  <!-- PAID DOWNLOAD -->
+  <div class="payBox">
+    <b>Download Resume (Paid)</b>
+    <div class="prices">
+      <div class="priceBtn" onclick="pay(99)">₹99 PDF</div>
+      <div class="priceBtn" onclick="pay(199)">₹199 DOC</div>
+      <div class="priceBtn" onclick="pay(299)">₹299 Editable</div>
+    </div>
+
+    <input id="txn" placeholder="UPI Transaction ID">
+    <button class="btn" style="background:#25d366" onclick="confirmPay()">Confirm on WhatsApp</button>
+  </div>
+
+  <div class="admin">
+    👁 Views: <span id="v">0</span> |
+    🖱 Clicks: <span id="c">0</span> |
+    💰 Payments: <span id="p">0</span>
+  </div>
+</div>
+
+<script>
+/* ===== CONFIG ===== */
+const UPI="7052049983@ibl";
+const PAYNAME="Resume Builder Pro";
+const WA="917052049983";
+
+/* ===== ANALYTICS ===== */
+let v=+localStorage.v||0,c=+localStorage.c||0,p=+localStorage.p||0;
+v++;localStorage.v=v;
+vEl.innerText=v; cEl.innerText=c; pEl.innerText=p;
+
+function generate(){
+  let html=`
+  <h3>${name.value}</h3>
+  ${email.value} | ${phone.value}<hr>
+  <b>Skills:</b> ${skill.value}<br><br>
+  <b>Experience:</b><br>${exp.value}<br><br>
+  <b>Education:</b><br>${edu.value}`;
+  preview.innerHTML=html;
+}
+
+/* ===== PAYMENT ===== */
+function pay(a){
+  c++;localStorage.c=c;cEl.innerText=c;
+  location.href=`upi://pay?pa=${UPI}&pn=${encodeURIComponent(PAYNAME)}&am=${a}&cu=INR`;
+}
+
+function confirmPay(){
+  if(!txn.value){alert("Transaction ID required");return;}
+  p++;localStorage.p=p;pEl.innerText=p;
+  let msg=`Resume Payment%0ATxn:${txn.value}%0AName:${name.value}`;
+  window.open(`https://wa.me/${WA}?text=${msg}`,"_blank");
+  alert("✅ Resume will be sent after verification");
+}
+
+/* bind */
+const vEl=document.getElementById("v");
+const cEl=document.getElementById("c");
+const pEl=document.getElementById("p");
+</script>
+
+</body>
+</html>
