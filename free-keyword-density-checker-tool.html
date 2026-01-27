@@ -1,1 +1,203 @@
 
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- SEO META -->
+  <title>Free Keyword Density Checker Tool | SEO Optimised Analyzer</title>
+  <meta name="description" content="Free Keyword Density Checker Tool with multi-level SEO analysis. Check unigram, bigram & trigram keyword density instantly.">
+  <meta name="keywords" content="keyword density checker, seo keyword density tool, free seo tools, keyword analyser">
+  <meta name="author" content="Free SEO Tools">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free Keyword Density Checker Tool">
+  <meta property="og:description" content="Analyse keyword density for SEO using a fast, free and responsive tool.">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --primary:#1e88e5;
+      --bg:#f4f6f9;
+      --card:#ffffff;
+      --border:#dcdcdc;
+    }
+
+    body {
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:#222;
+    }
+
+    header {
+      background:var(--primary);
+      color:#fff;
+      padding:18px;
+      text-align:center;
+    }
+
+    main {
+      max-width:1100px;
+      margin:auto;
+      padding:16px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+    }
+
+    @media(min-width:768px){
+      main{grid-template-columns:2fr 1fr;}
+    }
+
+    .box {
+      background:var(--card);
+      padding:20px;
+      border-radius:6px;
+      box-shadow:0 2px 6px rgba(0,0,0,.08);
+    }
+
+    textarea, select, button {
+      width:100%;
+      margin-top:10px;
+      padding:10px;
+      font-size:15px;
+      border-radius:4px;
+      border:1px solid var(--border);
+    }
+
+    button {
+      background:var(--primary);
+      color:#fff;
+      border:none;
+      cursor:pointer;
+    }
+
+    button:hover {opacity:.9;}
+
+    table {
+      width:100%;
+      border-collapse:collapse;
+      margin-top:15px;
+      font-size:14px;
+    }
+
+    th, td {
+      border:1px solid var(--border);
+      padding:8px;
+      text-align:left;
+    }
+
+    th {background:#eef2f6;}
+
+    .admoloBanner{
+      max-width:100%;
+      margin:15px auto;
+      text-align:center;
+    }
+
+    footer {
+      text-align:center;
+      padding:14px;
+      background:#fff;
+      border-top:1px solid var(--border);
+      font-size:14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Free Keyword Density Checker Tool</h1>
+  <p>SEO-Optimised | Multi-Level Keyword Analysis</p>
+</header>
+
+<main>
+
+  <!-- TOOL AREA -->
+  <section class="box">
+    <h2>Analyse Your Content</h2>
+
+    <label><strong>Select Tool Level</strong></label>
+    <select id="level">
+      <option value="basic">Basic – Unigram</option>
+      <option value="advanced">Advanced – Unigram + Bigram</option>
+      <option value="pro">Pro – Unigram + Bigram + Trigram</option>
+    </select>
+
+    <textarea id="text" placeholder="Paste your content here..."></textarea>
+
+    <button onclick="checkDensity()">Check Keyword Density</button>
+
+    <div id="output"></div>
+
+    <!-- CONTENT AD -->
+    <div class="admoloBanner"
+      data-publisher="eyJpdiI6IlU1MitQeFp0QTUrY2NqSEtYV0M5Z0E9PSIsInZhbHVlIjoiU2lnNWMyTFBLdVNwc3RwVU85TStLZz09IiwibWFjIjoiNGJmMGU0NjBhMDA5NTY2OGZjMzEyZTI4NmRkMGRiODQ4MzFhZjEyNGQ5ZTgxN2U2NzliNmQ2MDMzYmZiM2U0NiIsInRhZyI6IiJ9"
+      data-adsize="320x180">
+    </div>
+
+  </section>
+
+  <!-- SIDEBAR -->
+  <aside class="box">
+    <h3>Advertisement</h3>
+
+    <div class="admoloBanner"
+      data-publisher="eyJpdiI6IlU1MitQeFp0QTUrY2NqSEtYV0M5Z0E9PSIsInZhbHVlIjoiU2lnNWMyTFBLdVNwc3RwVU85TStLZz09IiwibWFjIjoiNGJmMGU0NjBhMDA5NTY2OGZjMzEyZTI4NmRkMGRiODQ4MzFhZjEyNGQ5ZTgxN2U2NzliNmQ2MDMzYmZiM2U0NiIsInRhZyI6IiJ9"
+      data-adsize="300x250">
+    </div>
+
+    <p>Easy monetisation with Admolo Ads.</p>
+  </aside>
+
+</main>
+
+<footer>
+  © 2026 Free SEO Tools | Keyword Density Checker
+</footer>
+
+<!-- ADMolo SCRIPT (REQUIRED) -->
+<script async src="https://static.admolo.com/ads.js"></script>
+
+<script>
+function checkDensity(){
+  const text=document.getElementById("text").value.toLowerCase();
+  const level=document.getElementById("level").value;
+  const out=document.getElementById("output");
+
+  if(!text.trim()){
+    out.innerHTML="<p>Please enter text.</p>";
+    return;
+  }
+
+  const words=text.replace(/[^a-z0-9\s]/g,"").split(/\s+/).filter(Boolean);
+  const total=words.length;
+  const freq={};
+
+  function ngram(n){
+    for(let i=0;i<=words.length-n;i++){
+      const k=words.slice(i,i+n).join(" ");
+      freq[k]=(freq[k]||0)+1;
+    }
+  }
+
+  ngram(1);
+  if(level!=="basic") ngram(2);
+  if(level==="pro") ngram(3);
+
+  let html="<table><tr><th>Keyword</th><th>Count</th><th>Density %</th></tr>";
+
+  Object.entries(freq).sort((a,b)=>b[1]-a[1]).forEach(e=>{
+    html+=`<tr><td>${e[0]}</td><td>${e[1]}</td><td>${((e[1]/total)*100).toFixed(2)}</td></tr>`;
+  });
+
+  html+="</table>";
+  out.innerHTML=html;
+}
+</script>
+
+</body>
+</html>
