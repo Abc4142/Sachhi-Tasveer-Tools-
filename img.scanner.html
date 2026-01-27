@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Free QR Code Scanner Tool - Scan QR codes instantly using your webcam. No app required.">
+  <meta name="keywords" content="QR Code Scanner, Online QR Reader, Free QR Tool, Webcam QR Scanner">
+  <meta name="author" content="YourName">
+  <title>Free QR Code Scanner Tool</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free QR Code Scanner Tool" />
+  <meta property="og:description" content="Scan QR codes online using your webcam. No app required." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/qr-scanner" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header, footer {
+      background: #0066cc;
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    video {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    select {
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 15px;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #444;
+    }
+
+    .ads-placeholder {
+      margin: 30px 0;
+      padding: 20px;
+      background: #ececec;
+      border: 2px dashed #bbb;
+      text-align: center;
+      border-radius: 12px;
+      color: #888;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📷 Free QR Code Scanner Tool</h1>
+  <p>Scan QR codes directly using your device’s camera</p>
+</header>
+
+<div class="container">
+
+  <!-- Ad Top -->
+  <div class="ads-placeholder">
+    <!-- 🧲 Insert your Eon Ads code here --> 
+<a href="https://www.eonads.com" class="ex2" target="_blank">Ads by Eonads</a>
+<ins class="e300x250" id="300x250" data-revive-hash="b26369331a0c243b74134c27d3e93c93" data-revive-zoneid="64345" data-revive-id="f87497be83f6ed6b52c3b340d803ae0d"></ins>
+<script async src="//network.eonads.com/adserver/www/delivery/asyncjs.php"></script><!-- ads by Eonads -->
+                     
+  </div>
+
+  <div class="card">
+    <h2>Start Scanning Your QR Code</h2>
+
+    <!-- Tool Level -->
+    <div>
+      <label for="tool-level">Tool Mode:</label><br />
+      <select id="tool-level" onchange="adjustToolLevel(this.value)">
+        <option value="basic">🔹 Basic</option>
+        <option value="advanced">🔸 Advanced</option>
+      </select>
+    </div>
+
+    <!-- Live Video -->
+    <video id="video" autoplay playsinline></video>
+
+    <!-- QR Output -->
+    <div id="output">Waiting for QR code...</div>
+  </div>
+
+  <!-- Ad Bottom -->
+  <div class="ads-placeholder">
+    <!-- 🧲 Insert your Eon Ads code here -->
+<a href="https://www.eonads.com" class="ex2" target="_blank">Ads by Eonads</a>
+<ins class="e300x250" id="300x250" data-revive-hash="b26369331a0c243b74134c27d3e93c93" data-revive-zoneid="64345" data-revive-id="f87497be83f6ed6b52c3b340d803ae0d"></ins>
+<script async src="//network.eonads.com/adserver/www/delivery/asyncjs.php"></script><!-- ads by Eonads -->
+                     
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Free QR Scanner Tool | Built by YourName</p>
+</footer>
+
+<!-- Script -->
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<script>
+  const video = document.getElementById('video');
+  const output = document.getElementById('output');
+  let canvas, context;
+
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+    .then(stream => {
+      video.srcObject = stream;
+      video.setAttribute("playsinline", true);
+      video.play();
+      requestAnimationFrame(scanQR);
+    })
+    .catch(err => {
+      output.textContent = "Camera access denied or not available.";
+    });
+
+  function scanQR() {
+    if (!canvas) {
+      canvas = document.createElement('canvas');
+      context = canvas.getContext('2d');
+    }
+
+    if (video.readyState === video.HAVE_ENOUGH_DATA) {
+      canvas.height = video.videoHeight;
+      canvas.width = video.videoWidth;
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+      const code = jsQR(imageData.data, imageData.width, imageData.height);
+      if (code) {
+        output.innerHTML = `✅ <span style="color: green;">${code.data}</span>`;
+      }
+    }
+    requestAnimationFrame(scanQR);
+  }
+
+  function adjustToolLevel(level) {
+    if (level === "advanced") {
+      document.body.style.backgroundColor = "#e8f4ff";
+    } else {
+      document.body.style.backgroundColor = "#f9f9f9";
+    }
+  }
+</script>
+
+</body>
+</html>
