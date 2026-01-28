@@ -1,1 +1,190 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Free AI Comment Generator Tool – Hindi English Hinglish</title>
+
+<meta name="description" content="Best Free AI Comment Generator Tool. Hindi, English & Hinglish comments with SEO optimisation. No API. Blogger & GitHub Safe.">
+<meta name="keywords" content="AI Comment Generator, Hindi AI Tool, SEO Comment Generator, YouTube Comment Tool Free, No API AI Tool India">
+<meta name="author" content="SachhiTasveerTools.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Schema -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"SoftwareApplication",
+ "name":"Free AI Comment Generator",
+ "applicationCategory":"UtilityApplication",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}
+}
+</script>
+
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--text:#111;--primary:#2563eb}
+body.dark{--bg:#020617;--card:#0f172a;--text:#e5e7eb}
+body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text)}
+header,footer{background:var(--card);padding:15px;text-align:center}
+.toggle{position:absolute;right:15px;top:15px;background:var(--primary);color:#fff;padding:6px 12px;border-radius:6px;cursor:pointer}
+main{max-width:1200px;margin:auto;padding:20px;display:grid;grid-template-columns:1fr 320px;gap:20px}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+h1,h2,h3{margin-top:0}
+select,input,button{width:100%;padding:12px;margin-top:10px;border-radius:8px;border:1px solid #ccc;font-size:15px}
+button{background:var(--primary);color:#fff;border:none;cursor:pointer}
+.result{margin-top:15px;padding:15px;border-radius:8px;background:#e0e7ff;color:#000;min-height:90px}
+body.dark .result{background:#1e293b;color:#fff}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.share button{background:#111827}
+img{width:100%;border-radius:10px;margin-bottom:12px}
+
+/* Ads */
+.ad{text-align:center;margin:15px auto}
+.sticky{position:sticky;top:80px}
+.mobile-ad{display:none}
+@media(max-width:768px){
+ .sticky{display:none}
+ .mobile-ad{display:block}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🤖 Free AI Comment Generator</h1>
+<p>Hindi • English • Hinglish | SEO Friendly | No API</p>
+<div class="toggle" onclick="toggleMode()">🌗 Mode</div>
+</header>
+
+<!-- HEADER AD -->
+<div class="ad ad-refresh">
+<ins style="width:728px;height:90px"
+ class="s85a408ec30"
+ data-domain="//data527.click"
+ data-affquery="/a9dffa75d87074c32058/85a408ec30/?placementName=default">
+<script src="//data527.click/js/responsive.js" async></script>
+</ins>
+</div>
+
+<!-- MOBILE ONLY AD -->
+<div class="ad mobile-ad ad-refresh">
+<ins style="width:320px;height:50px"
+ class="s85a408ec30"
+ data-domain="//data527.click"
+ data-affquery="/a9dffa75d87074c32058/85a408ec30/?placementName=default">
+<script src="//data527.click/js/responsive.js" async></script>
+</ins>
+</div>
+
+<main>
+<section class="card">
+<img src="https://images.unsplash.com/photo-1677442136019-21780ecad995" alt="AI Comment Generator">
+
+<h2>Generate Smart AI Comments</h2>
+
+<label>Language</label>
+<select id="lang">
+<option value="en">English</option>
+<option value="hi">Hindi</option>
+<option value="hinglish">Hinglish</option>
+</select>
+
+<label>Comment Format</label>
+<select id="format">
+<option value="short">Short</option>
+<option value="long">Long</option>
+<option value="question">Question</option>
+<option value="praise">Praise</option>
+<option value="review">Review</option>
+<option value="professional">Professional</option>
+<option value="emoji">Emoji Rich</option>
+<option value="seo">SEO Optimised</option>
+</select>
+
+<label>Keyword / Topic</label>
+<input id="keyword" placeholder="e.g. free AI tools, digital marketing">
+
+<button onclick="generateComment()">Generate Comment</button>
+
+<div id="result" class="result">Your AI comment will appear here...</div>
+
+<div class="actions">
+<button onclick="copyText()">📋 Copy</button>
+<button onclick="downloadText()">⬇ Download</button>
+</div>
+
+<div class="actions share">
+<button onclick="share('facebook')">Facebook</button>
+<button onclick="share('twitter')">X</button>
+<button onclick="share('linkedin')">LinkedIn</button>
+<button onclick="share('whatsapp')">WhatsApp</button>
+</div>
+</section>
+
+<aside class="card sticky">
+<h3>Sponsored</h3>
+<div class="ad ad-refresh">
+<ins style="width:300px;height:250px"
+ class="s85a408ec30"
+ data-domain="//data527.click"
+ data-affquery="/a9dffa75d87074c32058/85a408ec30/?placementName=default">
+<script src="//data527.click/js/responsive.js" async></script>
+</ins>
+</div>
+</aside>
+</main>
+
+<footer>
+<div class="ad ad-refresh">
+<ins style="width:728px;height:90px"
+ class="s85a408ec30"
+ data-domain="//data527.click"
+ data-affquery="/a9dffa75d87074c32058/85a408ec30/?placementName=default">
+<script src="//data527.click/js/responsive.js" async></script>
+</ins>
+</div>
+<p>© 2026 Free AI Comment Generator Tool</p>
+</footer>
+
+<script>
+const comments={
+en:{short:["Great content on {k}!","Very helpful post 👍"],long:["This {k} content is very informative and well explained."],question:["Can you share more about {k}?"],praise:["Amazing work on {k}!"],review:["Best resource on {k}."],professional:["This article gives a structured overview of {k}."],emoji:["🔥 Awesome {k}!"],seo:["SEO-friendly guide on {k}."]},
+hi:{short:["बहुत बढ़िया 👍"],long:["{k} पर यह जानकारी बहुत उपयोगी है।"],question:["{k} पर और जानकारी?"],praise:["{k} पर शानदार काम"],review:["{k} से जुड़ा बढ़िया कंटेंट"],professional:["{k} पर पेशेवर लेख"],emoji:["🔥 {k} शानदार"],seo:["{k} पर SEO उपयोगी गाइड"]},
+hinglish:{short:["Nice 👍"],long:["{k} ko simple tareeke se explain kiya"],question:["{k} par aur detail?"],praise:["{k} par excellent"],review:["{k} ka best content"],professional:["{k} ko professionally explain kiya"],emoji:["🔥 {k} awesome"],seo:["{k} par SEO friendly content"]}
+};
+
+function generateComment(){
+let k=document.getElementById("keyword").value||"this topic";
+let l=document.getElementById("lang").value;
+let f=document.getElementById("format").value;
+let arr=comments[l][f];
+result.innerText=arr[Math.floor(Math.random()*arr.length)].replace("{k}",k);
+}
+function copyText(){navigator.clipboard.writeText(result.innerText)}
+function downloadText(){
+let b=new Blob([result.innerText],{type:"text/plain"});
+let a=document.createElement("a");
+a.href=URL.createObjectURL(b);a.download="ai-comment.txt";a.click();
+}
+function share(p){
+let t=encodeURIComponent(result.innerText),u="";
+if(p=="facebook")u=`https://www.facebook.com/sharer/sharer.php?quote=${t}`;
+if(p=="twitter")u=`https://twitter.com/intent/tweet?text=${t}`;
+if(p=="linkedin")u=`https://www.linkedin.com/sharing/share-offsite/?summary=${t}`;
+if(p=="whatsapp")u=`https://wa.me/?text=${t}`;
+window.open(u,"_blank");
+}
+function toggleMode(){document.body.classList.toggle("dark")}
+
+/* Auto Ad Refresh */
+setInterval(()=>{
+document.querySelectorAll(".ad-refresh ins").forEach(ad=>{
+ad.innerHTML=ad.innerHTML;
+});
+},45000);
+</script>
+
+</body>
+</html>
