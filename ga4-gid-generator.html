@@ -1,1 +1,226 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MEGA PRO GA4 G-ID Generator Tool</title>
+<meta name="description" content="MEGA PRO GA4 G-ID Generator Tool. Generate valid GA4 G-IDs from single or bulk URLs. SEO-friendly, Blogger compatible & GitHub ready.">
+<meta name="robots" content="index,follow">
+
+<style>
+:root{
+ --bg:#ffffff;
+ --text:#111;
+ --card:#f3f4f6;
+ --accent:#2563eb;
+ --border:#e5e7eb;
+}
+body.dark{
+ --bg:#0f172a;
+ --text:#e5e7eb;
+ --card:#1e293b;
+ --accent:#38bdf8;
+ --border:#334155;
+}
+body{
+ margin:0;
+ font-family:system-ui,Arial,sans-serif;
+ background:var(--bg);
+ color:var(--text);
+}
+header{
+ background:var(--accent);
+ color:#fff;
+ padding:12px;
+ text-align:center;
+ font-weight:700;
+}
+header a{
+ color:#fff;
+ text-decoration:none;
+ margin:0 10px;
+ font-size:14px;
+}
+.container{
+ max-width:1000px;
+ margin:auto;
+ padding:16px;
+}
+.card{
+ background:var(--card);
+ padding:20px;
+ border-radius:12px;
+ margin-bottom:20px;
+ border:1px solid var(--border);
+}
+h1,h2{margin-top:0}
+input,textarea,button{
+ width:100%;
+ padding:12px;
+ margin:8px 0;
+ border-radius:8px;
+ border:1px solid var(--border);
+ font-size:15px;
+}
+textarea{min-height:120px}
+button{
+ background:var(--accent);
+ color:#fff;
+ border:none;
+ cursor:pointer;
+ font-weight:600;
+ transition:.2s;
+}
+button:hover{opacity:.9}
+.output{
+ background:#000;
+ color:#00ff7f;
+ padding:12px;
+ border-radius:10px;
+ font-family:monospace;
+ white-space:pre-wrap;
+ font-size:14px;
+}
+.flex{
+ display:flex;
+ gap:10px;
+ flex-wrap:wrap;
+}
+.note{
+ font-size:13px;
+ opacity:.8;
+}
+footer{
+ text-align:center;
+ font-size:13px;
+ opacity:.7;
+ margin:30px 0;
+}
+</style>
+</head>
+<body>
+
+<header>
+<a href="index.html">🏠 Home</a>
+<a href="ga4-gid-generator.html">⚙️ GA4 Tool</a>
+<a href="contact.html">📩 Contact</a>
+</header>
+
+<div class="container">
+
+<h1>🔥 MEGA PRO GA4 G-ID Generator Tool</h1>
+<p>Generate format-valid Google Analytics 4 (GA4) G-IDs from single or bulk URLs.</p>
+
+<button onclick="toggleMode()">🌙 Dark / ☀ Light Mode</button>
+
+<div class="card">
+<h2>Single URL</h2>
+<input id="singleUrl" placeholder="https://example.com">
+<div class="flex">
+<button onclick="generateSingle()">Generate</button>
+<button onclick="clearSingle()">Clear</button>
+</div>
+<div id="singleResult" class="output">G-XXXXXXXXXX</div>
+<button onclick="copyText('singleResult')">📋 Copy</button>
+</div>
+
+<div class="card">
+<h2>Bulk URLs</h2>
+<textarea id="bulkUrls" placeholder="https://site1.com&#10;https://site2.com"></textarea>
+<div class="flex">
+<button onclick="generateBulk()">Generate Bulk</button>
+<button onclick="downloadFile()">⬇ Download TXT</button>
+</div>
+<div id="bulkResult" class="output">No data generated</div>
+<button onclick="copyText('bulkResult')">📋 Copy All</button>
+</div>
+
+<p class="note">
+⚠️ This tool generates format-valid IDs only. It does NOT create official Google Analytics IDs.
+</p>
+
+<footer>
+© 2026 MEGA PRO GA4 Tool | Connected with index.html
+</footer>
+
+</div>
+
+<script>
+"use strict";
+
+function toggleMode(){
+ document.body.classList.toggle("dark");
+}
+
+function cleanURL(url){
+ try{
+  const u = new URL(url);
+  return u.hostname + u.pathname;
+ }catch{
+  return null;
+ }
+}
+
+function hash(str){
+ let h = 2166136261;
+ for(let i=0;i<str.length;i++){
+  h ^= str.charCodeAt(i);
+  h += (h<<1)+(h<<4)+(h<<7)+(h<<8)+(h<<24);
+ }
+ return Math.abs(h);
+}
+
+function generateGID(input){
+ const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+ let base = hash(input);
+ let id = "G-";
+ for(let i=0;i<10;i++){
+  id += chars[(base + i * 13) % chars.length];
+ }
+ return id;
+}
+
+function generateSingle(){
+ const url = document.getElementById("singleUrl").value.trim();
+ const clean = cleanURL(url);
+ if(!clean){ alert("Enter a valid URL"); return; }
+ document.getElementById("singleResult").textContent = generateGID(clean);
+}
+
+function clearSingle(){
+ document.getElementById("singleUrl").value = "";
+ document.getElementById("singleResult").textContent = "G-XXXXXXXXXX";
+}
+
+function generateBulk(){
+ const lines = document.getElementById("bulkUrls").value.trim().split(/\n+/);
+ let output = "";
+ lines.forEach(line=>{
+  const clean = cleanURL(line.trim());
+  if(clean){
+   output += `${line}  =>  ${generateGID(clean)}\n`;
+  }
+ });
+ document.getElementById("bulkResult").textContent = output || "No valid URLs";
+}
+
+function copyText(id){
+ const text = document.getElementById(id).textContent;
+ navigator.clipboard.writeText(text).then(()=>alert("Copied!"));
+}
+
+function downloadFile(){
+ const text = document.getElementById("bulkResult").textContent;
+ if(!text.trim()){ alert("No data"); return; }
+ const blob = new Blob([text], {type:"text/plain"});
+ const a = document.createElement("a");
+ a.href = URL.createObjectURL(blob);
+ a.download = "ga4-g-ids.txt";
+ a.click();
+}
+</script>
+
+</body>
+</html>
