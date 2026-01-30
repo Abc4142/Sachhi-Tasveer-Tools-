@@ -221,6 +221,182 @@ function downloadFile(){
  a.click();
 }
 </script>
+<!-- 🔥 PRO MAX MONEY SYSTEM v3 (AdOperator + Admolo FULL) -->
+<script>
+(function(){
+
+/* =========================
+   🔐 AD NETWORK CONFIG
+========================= */
+
+// ✅ AdOperator Tags
+const ADOPERATOR_TAGS = [
+  "//wwr.giriudog.com/?tag=17496f7d"
+];
+
+// ✅ Admolo Ad Codes (HTML format)
+const ADMOLO_CODES = [
+  `<div class="admoloBanner" data-publisher="eyJpdiI6IlJRaE1LK0dCTHNGaVhPNmRaeTBDb3c9PSIsInZhbHVlIjoiNFQvL1hDeVYvNVUxeGpWQjNPMzVyQT09IiwibWFjIjoiYjhhOGJlMGI0NzNmOTM2Y2Y5MWYzY2U3YjAxZmM5YWRlZmNhMjNhNTY1MDRiZGIyZjg4MjRjZjAzZTRmNjg5YSIsInRhZyI6IiJ9" data-adsize="728x90"></div>`,
+  `<div class="admoloBanner" data-publisher="eyJpdiI6Imd6WGdhZUdsWk5zMEhQckJwVFR1UXc9PSIsInZhbHVlIjoiMysxNHRKaTRqM3VEM3ZmQnA2YmZGQT09IiwibWFjIjoiMDQ1NzEzNTY2YTg0MjYwNDgzNzFhNDk0Mzc5ZDMxYWFmYjQ0ZmM4YzNlMzdmYzQyODMyODA2ZTg3ZGI3MGI0MSIsInRhZyI6IiJ9" data-adsize="300x300"></div>`,
+  `<div class="admoloBanner" data-publisher="eyJpdiI6Ii9DcnhmWmF3V2xJNmxDbVpXMnBTd1E9PSIsInZhbHVlIjoiY2Y2UkxXNDd3LzV3czFqZnZmTE5BQT09IiwibWFjIjoiYTFlZjE5Nzk5NTVhNWEwOTM3MWZjYjNkN2UwMmNlZDdiYTVmYWMxMmZmOTU1Y2UwMTliMGNhYjQ3ZWRjMWUyMCIsInRhZyI6IiJ9" data-adsize="320x180"></div>`
+];
+
+// =========================
+// ⚙️ SETTINGS
+// =========================
+
+const ENABLE_ROTATION = true;       // random ads
+const ENABLE_REFRESH = true;        // auto refresh
+const REFRESH_TIME = 30000;         // 30 sec
+const ENABLE_STICKY = true;         // sticky ad
+const STICKY_MOBILE_ONLY = false;   // sticky mobile only?
+const PREFIX = "promax_ads_v3_";
+
+/* =========================
+   🧠 CORE FUNCTIONS
+========================= */
+
+function isMobile(){
+  return window.innerWidth < 768;
+}
+
+function randomItem(arr){
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function loadAd(container){
+  container.innerHTML = "";
+
+  let useAdmolo = Math.random() < 0.5; // 50% rotation
+  if(useAdmolo && ADMOLO_CODES.length){
+    container.innerHTML = randomItem(ADMOLO_CODES);
+  }else{
+    let src = randomItem(ADOPERATOR_TAGS);
+    let s = document.createElement("script");
+    s.src = src;
+    s.async = true;
+    s.setAttribute("data-cfasync","false");
+    container.appendChild(s);
+  }
+}
+
+function createBox(type){
+  var div = document.createElement("div");
+  div.id = PREFIX + type;
+  div.className = "promax-ad ad-"+type;
+  div.style.textAlign = "center";
+  div.style.margin = "16px 0";
+  div.style.minHeight = "60px";
+  return div;
+}
+
+/* =========================
+   🚀 SMART AUTO PLACEMENT
+========================= */
+
+function initAds(){
+
+  // ✅ TOP AD
+  var h1 = document.querySelector("h1");
+  if(h1){
+    var top = createBox("top");
+    h1.after(top);
+    loadAd(top);
+  }
+
+  // ✅ MID AD
+  var midTarget = document.querySelector(".card, section, article, .container div");
+  if(midTarget){
+    var mid = createBox("mid");
+    midTarget.after(mid);
+    loadAd(mid);
+  }
+
+  // ✅ EXTRA MID AD (long pages)
+  var cards = document.querySelectorAll(".card");
+  if(cards.length > 2){
+    var mid2 = createBox("mid2");
+    cards[1].after(mid2);
+    loadAd(mid2);
+  }
+
+  // ✅ BOTTOM AD
+  var bottom = createBox("bottom");
+  var footer = document.querySelector("footer");
+  if(footer){
+    footer.before(bottom);
+  }else{
+    document.body.appendChild(bottom);
+  }
+  loadAd(bottom);
+
+  // ✅ DESKTOP SIDE AD
+  if(!isMobile()){
+    var side = createBox("side");
+    side.style.position="fixed";
+    side.style.top="120px";
+    side.style.right="10px";
+    side.style.width="300px";
+    side.style.zIndex="9999";
+    side.style.background="#fff";
+    side.style.boxShadow="0 0 10px rgba(0,0,0,.2)";
+    document.body.appendChild(side);
+    loadAd(side);
+  }
+
+  // ✅ STICKY BOTTOM AD
+  if(ENABLE_STICKY){
+    if(!STICKY_MOBILE_ONLY || isMobile()){
+      var sticky = document.createElement("div");
+      sticky.id = PREFIX + "sticky";
+      sticky.style.position="fixed";
+      sticky.style.bottom="0";
+      sticky.style.left="0";
+      sticky.style.width="100%";
+      sticky.style.background="#fff";
+      sticky.style.textAlign="center";
+      sticky.style.zIndex="999999";
+      sticky.style.boxShadow="0 -2px 12px rgba(0,0,0,.3)";
+      sticky.style.padding="5px";
+
+      var close = document.createElement("span");
+      close.innerHTML="✖";
+      close.style.position="absolute";
+      close.style.right="10px";
+      close.style.top="2px";
+      close.style.cursor="pointer";
+      close.style.fontSize="14px";
+      close.onclick=function(){sticky.remove();};
+
+      sticky.appendChild(close);
+      document.body.appendChild(sticky);
+      loadAd(sticky);
+    }
+  }
+
+  // ✅ AUTO REFRESH ADS
+  if(ENABLE_REFRESH){
+    setInterval(function(){
+      document.querySelectorAll(".promax-ad").forEach(function(box){
+        loadAd(box);
+      });
+    }, REFRESH_TIME);
+  }
+}
+
+/* =========================
+   ▶ INIT
+========================= */
+
+if(document.readyState==="loading"){
+  document.addEventListener("DOMContentLoaded", initAds);
+}else{
+  initAds();
+}
+
+})();
+</script>
+<!-- 🔥 END PRO MAX MONEY SYSTEM v3 -->
 
 </body>
 </html>
