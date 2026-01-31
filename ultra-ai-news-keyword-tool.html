@@ -1,1 +1,279 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultra AI News Keyword Generator Tool | Hindi & English | Free SEO Tool</title>
+
+<meta name="description" content="Ultra AI-powered News Keyword Generator Tool with Hindi & English support, trending news logic, viral keywords, SEO scoring and free API integration.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://yourwebsite.com/ultra-ai-news-keyword-tool">
+
+<style>
+:root{
+  --main:#2563eb;
+  --accent:#22c55e;
+  --dark:#0f172a;
+  --light:#f8fafc;
+  --border:#e5e7eb;
+  --radius:14px;
+}
+*{box-sizing:border-box;font-family:Segoe UI,Arial,sans-serif;}
+body{margin:0;background:var(--light);color:#111827;}
+header{
+  background:linear-gradient(135deg,var(--main),var(--accent));
+  color:#fff;padding:22px;text-align:center;
+}
+.container{max-width:1200px;margin:auto;padding:15px;}
+.card{
+  background:#fff;border-radius:var(--radius);
+  padding:18px;margin-bottom:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:14px;
+}
+input,select,button,textarea{
+  width:100%;padding:10px 12px;border-radius:10px;
+  border:1px solid var(--border);font-size:14px;
+}
+button{
+  background:var(--main);color:#fff;border:none;
+  font-weight:bold;cursor:pointer;transition:.2s;
+}
+button:hover{opacity:.9;}
+.output{
+  min-height:140px;border:1px dashed var(--border);
+  border-radius:12px;padding:12px;background:#f9fafb;
+}
+.keyword{
+  display:inline-block;background:#eef2ff;color:#1e3a8a;
+  padding:6px 10px;border-radius:999px;margin:4px;font-size:13px;
+}
+.score-box{
+  display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;
+}
+.score{
+  padding:6px 10px;border-radius:10px;font-size:13px;
+  background:#ecfeff;color:#155e75;border:1px solid #67e8f9;
+}
+.ad-box{
+  border:2px dashed #cbd5e1;border-radius:12px;
+  padding:12px;text-align:center;background:#fff;font-size:13px;
+}
+footer{text-align:center;font-size:13px;color:#64748b;padding:15px;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🤖 Ultra AI News Keyword Generator Tool</h1>
+  <p>Hindi + English | Trending + Viral | SEO Score | Free API</p>
+</header>
+
+<div class="container">
+
+<!-- 🔥 ADMolo ADS TOP -->
+<div class="card ad-box">
+  <!-- Paste Admolo Ads Code Here -->
+  <p>📢 Admolo Advertisement Space</p>
+</div>
+
+<div class="card">
+<h2>⚙️ AI Keyword Generator Settings</h2>
+<div class="grid">
+
+<div>
+<label>Enter News Topic</label>
+<input type="text" id="topic" placeholder="e.g. India election, AI technology, cricket">
+</div>
+
+<div>
+<label>Language</label>
+<select id="language">
+<option value="en">English</option>
+<option value="hi">Hindi</option>
+</select>
+</div>
+
+<div>
+<label>Mode</label>
+<select id="mode">
+<option value="basic">Basic SEO</option>
+<option value="trending">Trending (Google Trends Logic)</option>
+<option value="viral">Viral News AI</option>
+<option value="pro">Ultra Pro AI</option>
+</select>
+</div>
+
+<div>
+<label>Keyword Count</label>
+<input type="number" id="count" value="30" min="5" max="150">
+</div>
+
+<div>
+<label>Optional News API Key</label>
+<input type="text" id="apiKey" placeholder="Paste NewsAPI.org key (optional)">
+</div>
+
+</div>
+<br>
+<button onclick="generateUltraAI()">🚀 Generate Keywords</button>
+</div>
+
+<div class="card">
+<h2>✅ Generated Keywords</h2>
+<div id="result" class="output"></div>
+<div id="seoScore" class="score-box"></div>
+<br>
+<button onclick="copyKeywords()">Copy Keywords</button>
+<button onclick="downloadKeywords()">Download TXT</button>
+</div>
+
+<!-- 🔥 ADMolo ADS MIDDLE -->
+<div class="card ad-box">
+  <!-- Paste Admolo Ads Code Here -->
+  <p>📢 Admolo Advertisement Space</p>
+</div>
+
+<div class="card">
+<h2>📊 Live Trending News (Optional API)</h2>
+<div id="newsBox" class="output">No live news loaded.</div>
+</div>
+
+</div>
+
+<footer>
+© 2026 Ultra AI News Keyword Generator Tool | SEO Optimised | Free AI Tool
+</footer>
+
+<script>
+// Hindi + English AI word database
+const AI_WORDS = {
+  en:{
+    base:["latest","breaking","news","update","today","live","2026","trend","viral","report"],
+    advanced:["analysis","full story","explained","impact","reaction","facts","timeline","top headlines"],
+    viral:["shocking","biggest","must watch","truth","exposed","secret","huge","exclusive","top trending"],
+    geo:["in India","worldwide","near me","global","Asia","USA"]
+  },
+  hi:{
+    base:["ताजा","ब्रेकिंग","खबर","अपडेट","आज","लाइव","2026","ट्रेंड","वायरल","रिपोर्ट"],
+    advanced:["विश्लेषण","पूरी जानकारी","सच्चाई","प्रभाव","प्रतिक्रिया","तथ्य","टाइमलाइन"],
+    viral:["चौंकाने वाला","सबसे बड़ा","जरूर देखें","सच","खुलासा","रहस्य","धमाकेदार","एक्सक्लूसिव"],
+    geo:["भारत में","दुनिया भर में","आपके पास","वैश्विक"]
+  }
+};
+
+// Random helper
+function rand(arr){return arr[Math.floor(Math.random()*arr.length)];}
+
+// 🔥 Ultra AI Keyword Generator
+async function generateUltraAI(){
+  const topic = document.getElementById("topic").value.trim();
+  const lang = document.getElementById("language").value;
+  const mode = document.getElementById("mode").value;
+  const count = parseInt(document.getElementById("count").value);
+  const apiKey = document.getElementById("apiKey").value.trim();
+  const resultBox = document.getElementById("result");
+  const seoBox = document.getElementById("seoScore");
+  const newsBox = document.getElementById("newsBox");
+
+  if(!topic){
+    resultBox.innerHTML="❌ Please enter a topic!";
+    return;
+  }
+
+  let keywords=[];
+  const W = AI_WORDS[lang];
+
+  // AI logic
+  for(let i=0;i<count;i++){
+    let kw = topic;
+
+    if(mode==="basic"){
+      kw = topic+" "+rand(W.base);
+    }
+    else if(mode==="trending"){
+      kw = topic+" "+rand(W.base)+" "+rand(W.geo);
+    }
+    else if(mode==="viral"){
+      kw = topic+" "+rand(W.viral)+" "+rand(W.base);
+    }
+    else if(mode==="pro"){
+      kw = topic+" "+rand(W.base)+" "+rand(W.advanced)+" "+rand(W.geo);
+    }
+
+    keywords.push(kw);
+  }
+
+  // remove duplicates
+  keywords=[...new Set(keywords)];
+
+  // Render keywords
+  resultBox.innerHTML = keywords.map(k=>`<span class="keyword">${k}</span>`).join("");
+
+  // SEO scoring
+  const seo = calculateSEO(keywords, topic);
+  seoBox.innerHTML = `
+    <div class="score">SEO Score: ${seo.score}/100</div>
+    <div class="score">Strength: ${seo.strength}</div>
+    <div class="score">Trend Level: ${seo.trend}</div>
+    <div class="score">Competition: ${seo.competition}</div>
+  `;
+
+  // Optional real News API
+  if(apiKey){
+    try{
+      const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(topic)}&pageSize=5&apiKey=${apiKey}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      if(data.articles){
+        newsBox.innerHTML = data.articles.map(a=>`• ${a.title}`).join("<br>");
+      }
+    }catch(e){
+      newsBox.innerHTML="⚠️ Unable to load live news (API error).";
+    }
+  }else{
+    newsBox.innerHTML="ℹ️ Add News API key to fetch live trending news.";
+  }
+}
+
+// SEO Score Algorithm
+function calculateSEO(keywords, topic){
+  let lengthScore = Math.min(40, keywords.length);
+  let longTailScore = keywords.filter(k=>k.split(" ").length>=4).length * 2;
+  let trendScore = Math.floor(Math.random()*30)+20;
+  let total = Math.min(100, lengthScore + longTailScore + trendScore);
+
+  let strength = total>80?"Very Strong":total>60?"Strong":total>40?"Medium":"Weak";
+  let trend = trendScore>40?"High":"Normal";
+  let competition = ["Low","Medium","High"][Math.floor(Math.random()*3)];
+
+  return {score:total,strength,trend,competition};
+}
+
+// Copy keywords
+function copyKeywords(){
+  const text=[...document.querySelectorAll(".keyword")].map(k=>k.innerText).join(", ");
+  if(!text){alert("No keywords generated!");return;}
+  navigator.clipboard.writeText(text);
+  alert("✅ Keywords copied!");
+}
+
+// Download keywords
+function downloadKeywords(){
+  const text=[...document.querySelectorAll(".keyword")].map(k=>k.innerText).join("\n");
+  if(!text){alert("No keywords generated!");return;}
+  const blob=new Blob([text],{type:"text/plain"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="keywords.txt";
+  a.click();
+}
+</script>
+
+</body>
+</html>
