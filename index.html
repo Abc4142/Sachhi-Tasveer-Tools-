@@ -1,1 +1,214 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sachhi Tasveer Tools – Free Online Tools</title>
+<meta name="description" content="Free online tools including AI Title Generator, Word Counter, Resume Builder, Image Compressor and more.">
+<meta name="robots" content="index, follow">
+
+<!-- ✅ ADMolo Script -->
+<script class="admoloScript" src="https://admolo.com/assets/ads/ad.js" async></script>
+
+<style>
+*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{margin:0;background:#f4f6fb;color:#111}
+
+/* NAV */
+.main-nav{background:#4f46e5;position:sticky;top:0;z-index:999}
+.nav-container{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:12px}
+.logo{color:#fff;text-decoration:none;font-weight:700;font-size:20px}
+.logo span{color:#fde047}
+.menu-btn{display:none;color:#fff;font-size:26px;cursor:pointer}
+.nav-links{list-style:none;display:flex;gap:15px;margin:0;padding:0}
+.nav-links a{color:#fff;text-decoration:none;font-weight:500}
+.nav-links a.active{background:rgba(255,255,255,.2);border-radius:5px;padding:6px 10px}
+@media(max-width:768px){
+.menu-btn{display:block}
+.nav-links{display:none;flex-direction:column;background:#4f46e5;position:absolute;top:60px;right:0;width:220px;padding:15px}
+.nav-links.show{display:flex}
+}
+
+/* CONTENT */
+.container{max-width:1200px;margin:auto;padding:25px}
+.tool-box{background:#fff;padding:20px;border-radius:12px;margin-bottom:30px;box-shadow:0 6px 15px rgba(0,0,0,.08)}
+h3{margin-top:0}
+textarea,input,button{width:100%;padding:10px;margin-top:8px;border-radius:6px;border:1px solid #ccc}
+button{background:#4f46e5;color:#fff;font-weight:600;border:none;cursor:pointer}
+button:hover{background:#4338ca}
+.result{margin-top:10px;font-weight:bold}
+canvas,img{max-width:100%}
+
+/* FOOTER */
+footer{background:#111827;color:#fff;text-align:center;padding:25px}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="main-nav">
+<div class="nav-container">
+<a href="index.html" class="logo">Sachhita<span>Tools</span></a>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">Home</a></li>
+<li><a href="#tools">All Tools</a></li>
+<li><a href="pdf-tools.html">PDF Tools</a></li>
+<li><a href="resume-builder.html">Resume Builder</a></li>
+<li><a href="free-keyword-density-checker-tool.html">Keyword Density Tool</a></li>
+<li><a href="qr-scanner.html">QR Scanner</a></li>
+<li><a href="ga4-gid-generator.html">GA4 G-ID Generator</a></li>
+<li><a href="ai-description.html">AI Description</a></li>
+<li><a href="ultra-ai-news-keyword-tool.html">AI News Keyword Tool</a></li>
+<li><a href="ai-comment-generator.html">AI Comment Tool</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- TOOLS -->
+<div class="container" id="tools">
+
+<div class="tool-box">
+<h3>AI Title Generator</h3>
+<input id="titleKey" placeholder="Enter keyword">
+<button onclick="genTitle()">Generate</button>
+<div class="result" id="titleOut"></div>
+</div>
+
+<div class="tool-box">
+<h3>Word Counter</h3>
+<textarea id="wordText"></textarea>
+<button onclick="countWords()">Count</button>
+<div class="result" id="wordOut"></div>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 Sachhi Tasveer Tools. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("show");
+}
+
+function genTitle(){
+let k=document.getElementById("titleKey").value;
+document.getElementById("titleOut").innerText="Best "+k+" Guide in 2026";
+}
+
+function countWords(){
+let t=document.getElementById("wordText").value.trim();
+let c=t?t.split(/\s+/).length:0;
+document.getElementById("wordOut").innerText="Total Words: "+c;
+}
+</script>
+
+<!-- 🔥 PRO MAX MONEY SYSTEM v3 (Admolo + AdOperator FULL) -->
+<script>
+(function(){
+
+const ADOPERATOR_TAGS = [
+  "//wwr.giriudog.com/?tag=17496f7d"
+];
+
+const ADMOLO_CODES = [
+  `<div class="admoloBanner" data-publisher="eyJpdiI6IlJRaE1LK0dCTHNGaVhPNmRaeTBDb3c9PSIsInZhbHVlIjoiNFQvL1hDeVYvNVUxeGpWQjNPMzVyQT09IiwibWFjIjoiYjhhOGJlMGI0NzNmOTM2Y2Y5MWYzY2U3YjAxZmM5YWRlZmNhMjNhNTY1MDRiZGIyZjg4MjRjZjAzZTRmNjg5YSIsInRhZyI6IiJ9" data-adsize="728x90"></div>`,
+  `<div class="admoloBanner" data-publisher="eyJpdiI6Imd6WGdhZUdsWk5zMEhQckJwVFR1UXc9PSIsInZhbHVlIjoiMysxNHRKaTRqM3VEM3ZmQnA2YmZGQT09IiwibWFjIjoiMDQ1NzEzNTY2YTg0MjYwNDgzNzFhNDk0Mzc5ZDMxYWFmYjQ0ZmM4YzNlMzdmYzQyODMyODA2ZTg3ZGI3MGI0MSIsInRhZyI6IiJ9" data-adsize="300x300"></div>`,
+  `<div class="admoloBanner" data-publisher="eyJpdiI6Ii9DcnhmWmF3V2xJNmxDbVpXMnBTd1E9PSIsInZhbHVlIjoiY2Y2UkxXNDd3LzV3czFqZnZmTE5BQT09IiwibWFjIjoiYTFlZjE5Nzk5NTVhNWEwOTM3MWZjYjNkN2UwMmNlZDdiYTVmYWMxMmZmOTU1Y2UwMTliMGNhYjQ3ZWRjMWUyMCIsInRhZyI6IiJ9" data-adsize="320x180"></div>`
+];
+
+const REFRESH_TIME = 30000;
+const PREFIX = "promax_ads_";
+
+function isMobile(){return window.innerWidth < 768;}
+function randomItem(arr){return arr[Math.floor(Math.random()*arr.length)];}
+
+function loadAd(container){
+  container.innerHTML="";
+  if(Math.random()<0.5){
+    container.innerHTML=randomItem(ADMOLO_CODES);
+  }else{
+    let s=document.createElement("script");
+    s.src=randomItem(ADOPERATOR_TAGS);
+    s.async=true;
+    container.appendChild(s);
+  }
+}
+
+function createBox(type){
+  let d=document.createElement("div");
+  d.className="promax-ad";
+  d.style.textAlign="center";
+  d.style.margin="20px 0";
+  d.style.minHeight="60px";
+  return d;
+}
+
+function initAds(){
+
+  let top=createBox("top");
+  document.querySelector(".container").prepend(top);
+  loadAd(top);
+
+  let mid=createBox("mid");
+  document.querySelector(".tool-box").after(mid);
+  loadAd(mid);
+
+  let bottom=createBox("bottom");
+  document.querySelector("footer").before(bottom);
+  loadAd(bottom);
+
+  if(!isMobile()){
+    let side=createBox("side");
+    side.style.position="fixed";
+    side.style.top="120px";
+    side.style.right="10px";
+    side.style.width="300px";
+    side.style.zIndex="9999";
+    side.style.background="#fff";
+    side.style.boxShadow="0 0 10px rgba(0,0,0,.2)";
+    document.body.appendChild(side);
+    loadAd(side);
+  }
+
+  let sticky=document.createElement("div");
+  sticky.style.position="fixed";
+  sticky.style.bottom="0";
+  sticky.style.left="0";
+  sticky.style.width="100%";
+  sticky.style.background="#fff";
+  sticky.style.textAlign="center";
+  sticky.style.zIndex="999999";
+  sticky.style.boxShadow="0 -2px 12px rgba(0,0,0,.3)";
+  sticky.style.padding="5px";
+
+  let close=document.createElement("span");
+  close.innerHTML="✖";
+  close.style.position="absolute";
+  close.style.right="10px";
+  close.style.top="2px";
+  close.style.cursor="pointer";
+  close.onclick=function(){sticky.remove();};
+
+  sticky.appendChild(close);
+  document.body.appendChild(sticky);
+  loadAd(sticky);
+
+  setInterval(function(){
+    document.querySelectorAll(".promax-ad").forEach(loadAd);
+  },REFRESH_TIME);
+}
+
+document.addEventListener("DOMContentLoaded",initAds);
+
+})();
+</script>
+<!-- 🔥 END PRO MAX MONEY SYSTEM -->
+
+</body>
+</html>
