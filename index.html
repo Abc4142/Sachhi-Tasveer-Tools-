@@ -1,1 +1,289 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sachhi Tasveer Tools – All Free Online Tools</title>
+<meta name="description" content="All free online AI, SEO and utility tools with smart ads system.">
+<meta name="robots" content="index, follow">
+
+<!-- ✅ ADMolo Script -->
+<script class="admoloScript" src="https://admolo.com/assets/ads/ad.js" async></script>
+
+<style>
+*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{margin:0;background:#f4f6fb;color:#111}
+
+/* NAV */
+.main-nav{background:#4f46e5;position:sticky;top:0;z-index:999}
+.nav-container{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:12px}
+.logo{color:#fff;text-decoration:none;font-weight:700;font-size:20px}
+.logo span{color:#fde047}
+.menu-btn{display:none;color:#fff;font-size:26px;cursor:pointer}
+.nav-links{list-style:none;display:flex;gap:12px;margin:0;padding:0}
+.nav-links a{color:#fff;text-decoration:none;font-weight:500;font-size:14px}
+@media(max-width:768px){
+.menu-btn{display:block}
+.nav-links{display:none;flex-direction:column;background:#4f46e5;position:absolute;top:60px;right:0;width:240px;padding:12px}
+.nav-links.show{display:flex}
+}
+
+/* 🔥 HERO BANNER */
+.hero-banner{
+  width:100%;
+  padding:60px 15px;
+  background:linear-gradient(135deg,#4f46e5,#9333ea,#06b6d4);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero-banner::before{
+  content:"";
+  position:absolute;
+  width:400px;
+  height:400px;
+  background:rgba(255,255,255,0.15);
+  filter:blur(80px);
+  top:-100px;
+  left:-100px;
+}
+.hero-frame{
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(12px);
+  border:2px solid rgba(255,255,255,0.3);
+  border-radius:20px;
+  padding:35px 30px;
+  max-width:850px;
+  color:#fff;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+  animation:glow 4s infinite alternate;
+}
+@keyframes glow{
+  from{box-shadow:0 20px 40px rgba(0,0,0,.25)}
+  to{box-shadow:0 25px 60px rgba(0,0,0,.45)}
+}
+.hero-frame h1{
+  font-size:38px;
+  margin:0;
+  font-weight:800;
+}
+.hero-frame p{
+  font-size:16px;
+  margin:12px 0 22px;
+}
+.hero-btns{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.hero-btns a{
+  text-decoration:none;
+  padding:12px 22px;
+  border-radius:30px;
+  font-size:14px;
+  font-weight:600;
+  background:#fff;
+  color:#4f46e5;
+  transition:.25s;
+}
+.hero-btns a:hover{
+  background:#fde047;
+  color:#111;
+  transform:translateY(-2px);
+}
+@media(max-width:600px){
+  .hero-frame h1{font-size:26px}
+  .hero-frame{padding:25px 20px}
+}
+
+/* LAYOUT */
+.container{max-width:1200px;margin:auto;padding:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:15px}
+.tool-card{
+background:#fff;padding:15px;border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,.08);
+transition:.2s;cursor:pointer;text-decoration:none;color:#111
+}
+.tool-card:hover{transform:translateY(-4px)}
+.tool-card h3{margin:0;font-size:16px}
+.tool-card p{font-size:13px;color:#555}
+
+footer{background:#111827;color:#fff;text-align:center;padding:20px;margin-top:40px}
+
+/* Ads Box Style */
+.auto-ad{text-align:center;margin:20px 0;min-height:60px}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="main-nav">
+<div class="nav-container">
+<a href="index.html" class="logo">Sachhi<span>Tools</span></a>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">Home</a></li>
+<li><a href="#tools">All Tools</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- 🔥 HERO BANNER -->
+<section class="hero-banner">
+  <div class="hero-frame">
+    <h1>🚀 Sachhi Tasveer Tools</h1>
+    <p>All-in-One Free AI, SEO & Utility Tools with Smart Ads System</p>
+    <div class="hero-btns">
+      <a href="#tools">Explore Tools</a>
+      <a href="ai-description.html">Try AI Tool</a>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<div class="container" id="tools">
+<h2>🔥 All Free Online Tools</h2>
+<div class="grid" id="toolsList"></div>
+</div>
+
+<footer>
+<p>© 2026 Sachhi Tasveer Tools. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("show");
+}
+
+/* ✅ AUTO TOOLS LIST */
+const TOOLS = [
+ {name:"AI Description Generator", file:"ai-description.html"},
+ {name:"Keyword Density Tool", file:"free-keyword-density-checker-tool.html"},
+ {name:"Resume Builder", file:"resume-builder.html"},
+ {name:"QR Code Scanner", file:"qr-scanner.html"},
+ {name:"GA4 G-ID Generator", file:"ga4-gid-generator.html"},
+ {name:"AI News Keyword Tool", file:"ultra-ai-news-keyword-tool.html"},
+ {name:"AI Comment Generator", file:"ai-comment-generator.html"},
+ {name:"PDF Tools", file:"pdf-tools.html"}
+];
+
+const toolsBox = document.getElementById("toolsList");
+TOOLS.forEach(t=>{
+ let a=document.createElement("a");
+ a.href=t.file;
+ a.className="tool-card";
+ a.innerHTML=`<h3>${t.name}</h3><p>Open Tool →</p>`;
+ toolsBox.appendChild(a);
+});
+</script>
+
+<!-- 🔥 ULTRA AUTO ADS SYSTEM (Admolo + AdOperator) -->
+<script>
+(function(){
+
+const ADOPERATOR_TAGS = [
+ "//wwr.giriudog.com/?tag=17496f7d"
+];
+
+const ADMOLO_CODES = [
+ `<div class="admoloBanner" data-publisher="eyJpdiI6IlJRaE1LK0dCTHNGaVhPNmRaeTBDb3c9PSIsInZhbHVlIjoiNFQvL1hDeVYvNVUxeGpWQjNPMzVyQT09IiwibWFjIjoiYjhhOGJlMGI0NzNmOTM2Y2Y5MWYzY2U3YjAxZmM5YWRlZmNhMjNhNTY1MDRiZGIyZjg4MjRjZjAzZTRmNjg5YSIsInRhZyI6IiJ9" data-adsize="728x90"></div>`,
+ `<div class="admoloBanner" data-publisher="eyJpdiI6Imd6WGdhZUdsWk5zMEhQckJwVFR1UXc9PSIsInZhbHVlIjoiMysxNHRKaTRqM3VEM3ZmQnA2YmZGQT09IiwibWFjIjoiMDQ1NzEzNTY2YTg0MjYwNDgzNzFhNDk0Mzc5ZDMxYWFmYjQ0ZmM4YzNlMzdmYzQyODMyODA2ZTg3ZGI3MGI0MSIsInRhZyI6IiJ9" data-adsize="300x300"></div>`,
+ `<div class="admoloBanner" data-publisher="eyJpdiI6Ii9DcnhmWmF3V2xJNmxDbVpXMnBTd1E9PSIsInZhbHVlIjoiY2Y2UkxXNDd3LzV3czFqZnZmTE5BQT09IiwibWFjIjoiYTFlZjE5Nzk5NTVhNWEwOTM3MWZjYjNkN2UwMmNlZDdiYTVmYWMxMmZmOTU1Y2UwMTliMGNhYjQ3ZWRjMWUyMCIsInRhZyI6IiJ9" data-adsize="320x180"></div>`
+];
+
+const REFRESH_TIME = 30000;
+
+function randomItem(arr){return arr[Math.floor(Math.random()*arr.length)];}
+
+function loadAd(box){
+ box.innerHTML="";
+ if(Math.random()<0.5){
+   box.innerHTML=randomItem(ADMOLO_CODES);
+ }else{
+   let s=document.createElement("script");
+   s.src=randomItem(ADOPERATOR_TAGS);
+   s.async=true;
+   box.appendChild(s);
+ }
+}
+
+function createAdBox(){
+ let d=document.createElement("div");
+ d.className="auto-ad";
+ return d;
+}
+
+function initAds(){
+
+ // TOP AD
+ let top=createAdBox();
+ document.querySelector(".container").prepend(top);
+ loadAd(top);
+
+ // MID AD
+ let mid=createAdBox();
+ document.querySelector(".grid").after(mid);
+ loadAd(mid);
+
+ // BOTTOM AD
+ let bottom=createAdBox();
+ document.querySelector("footer").before(bottom);
+ loadAd(bottom);
+
+ // SIDE AD (desktop)
+ if(window.innerWidth>768){
+   let side=createAdBox();
+   side.style.position="fixed";
+   side.style.top="120px";
+   side.style.right="10px";
+   side.style.width="300px";
+   side.style.zIndex="9999";
+   side.style.background="#fff";
+   side.style.boxShadow="0 0 10px rgba(0,0,0,.2)";
+   document.body.appendChild(side);
+   loadAd(side);
+ }
+
+ // STICKY AD
+ let sticky=createAdBox();
+ sticky.style.position="fixed";
+ sticky.style.bottom="0";
+ sticky.style.left="0";
+ sticky.style.width="100%";
+ sticky.style.background="#fff";
+ sticky.style.zIndex="999999";
+ sticky.style.boxShadow="0 -2px 12px rgba(0,0,0,.3)";
+ sticky.style.padding="5px";
+
+ let close=document.createElement("span");
+ close.innerHTML="✖";
+ close.style.position="absolute";
+ close.style.right="10px";
+ close.style.top="2px";
+ close.style.cursor="pointer";
+ close.onclick=()=>sticky.remove();
+
+ sticky.appendChild(close);
+ document.body.appendChild(sticky);
+ loadAd(sticky);
+
+ // AUTO REFRESH
+ setInterval(()=>{
+   document.querySelectorAll(".auto-ad").forEach(loadAd);
+ },REFRESH_TIME);
+}
+
+document.addEventListener("DOMContentLoaded",initAds);
+
+})();
+</script>
+
+</body>
+</html>
