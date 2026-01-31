@@ -1,1 +1,190 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Description Generator Tool - Free SEO Description Creator</title>
+
+<meta name="description" content="Free AI Description Generator Tool. Create SEO, product, blog, YouTube, app & social media descriptions instantly with smart AI tool.">
+<meta name="keywords" content="AI description generator, SEO description tool, product description generator, meta description generator">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://sachhitasveertools.com/ai-description.html">
+
+<style>
+:root{
+--bg:#ffffff;
+--text:#111827;
+--card:#f3f4f6;
+--primary:#2563eb;
+--border:#e5e7eb;
+}
+.dark{
+--bg:#0f172a;
+--text:#e5e7eb;
+--card:#1e293b;
+--primary:#38bdf8;
+--border:#334155;
+}
+*{box-sizing:border-box;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{margin:0;background:var(--bg);color:var(--text);transition:.3s}
+header{background:var(--card);border-bottom:1px solid var(--border);padding:12px}
+nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{font-weight:700;font-size:20px}
+button{background:var(--primary);color:#fff;border:none;padding:9px 16px;border-radius:8px;cursor:pointer;font-size:14px}
+button.secondary{background:transparent;color:var(--primary);border:1px solid var(--primary)}
+.container{max-width:1100px;margin:auto;padding:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;box-shadow:0 10px 25px #00000008}
+h1{font-size:28px;margin:0 0 10px}
+p{opacity:.85}
+input,select,textarea{
+width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);
+background:var(--bg);color:var(--text);font-size:14px;outline:none
+}
+textarea{min-height:110px;resize:vertical}
+.result-box{margin-top:12px;padding:15px;border-radius:12px;background:#00000008;border:1px dashed var(--border)}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.actions button{font-size:13px}
+.share a{margin-right:10px;text-decoration:none;color:var(--primary);font-weight:600}
+footer{margin-top:30px;padding:15px;text-align:center;background:var(--card);border-top:1px solid var(--border)}
+.ad-box{margin:15px 0;text-align:center}
+</style>
+</head>
+<body>
+
+<!-- 🔥 GLOBAL ADS SYSTEM -->
+<script src="https://sachhitasveertools.com/ads-system.js"></script>
+
+<header>
+<nav>
+<div class="logo">⚡ AI Description Generator</div>
+<div>
+<button class="secondary" onclick="toggleTheme()">Dark Mode</button>
+</div>
+</nav>
+</header>
+
+<div class="container">
+
+<!-- TOP AD -->
+<div class="ad-box" id="ad-top"></div>
+
+<div class="grid">
+<div class="card">
+<h1>AI Description Generator Tool</h1>
+<p>Create SEO-friendly descriptions for blogs, products, YouTube, apps and social media instantly.</p>
+
+<label>Choose Description Type</label>
+<select id="type">
+<option>Meta Description</option>
+<option>Product Description</option>
+<option>Blog Description</option>
+<option>YouTube Description</option>
+<option>App Description</option>
+<option>Website About</option>
+<option>Social Media Caption</option>
+</select>
+
+<label>Title / Product / App Name</label>
+<input id="title" placeholder="Enter title or product name">
+
+<label>Main Keyword / Topic</label>
+<input id="keyword" placeholder="Enter main keyword">
+
+<button onclick="generate()">Generate Description</button>
+
+<div class="result-box" id="result" style="display:none">
+<textarea id="output"></textarea>
+
+<div class="actions">
+<button onclick="copyText()">Copy</button>
+<button onclick="downloadText()">Download</button>
+<button onclick="regenerate()">Re-Generate</button>
+</div>
+
+<div class="share">
+<a id="fb" target="_blank">Facebook</a>
+<a id="tw" target="_blank">X</a>
+<a id="ln" target="_blank">LinkedIn</a>
+<a id="wa" target="_blank">WhatsApp</a>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h2>Why Use This Tool?</h2>
+<ul>
+<li>✅ 100% free and fast AI description generator</li>
+<li>✅ SEO-friendly and professional output</li>
+<li>✅ Works on mobile & desktop</li>
+<li>✅ Perfect for bloggers, marketers & developers</li>
+<li>✅ Multi-format description generator</li>
+</ul>
+
+<!-- SIDE AD -->
+<div class="ad-box" id="ad-side"></div>
+
+</div>
+</div>
+
+<!-- BOTTOM AD -->
+<div class="ad-box" id="ad-bottom"></div>
+
+</div>
+
+<footer>
+<p>© 2026 Sachhi Tasveer Tools. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleTheme(){
+document.body.classList.toggle("dark");
+}
+
+function generate(){
+const type=document.getElementById("type").value;
+const title=document.getElementById("title").value.trim();
+const keyword=document.getElementById("keyword").value.trim();
+
+if(!title || !keyword){
+alert("Please enter title and keyword!");
+return;
+}
+
+let text=`${type}: "${title}" is designed around the keyword "${keyword}". This description is SEO-friendly, engaging and professionally written to improve online visibility, clicks and conversions. Perfect for digital platforms, blogs, products and marketing campaigns.`;
+
+document.getElementById("output").value=text;
+document.getElementById("result").style.display="block";
+
+document.getElementById("fb").href=`https://www.facebook.com/sharer/sharer.php?u=&quote=${encodeURIComponent(text)}`;
+document.getElementById("tw").href=`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+document.getElementById("ln").href=`https://www.linkedin.com/sharing/share-offsite/?summary=${encodeURIComponent(text)}`;
+document.getElementById("wa").href=`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+}
+
+function copyText(){
+const t=document.getElementById("output");
+t.select();
+document.execCommand("copy");
+alert("Copied successfully!");
+}
+
+function downloadText(){
+const text=document.getElementById("output").value;
+const blob=new Blob([text],{type:"text/plain"});
+const a=document.createElement("a");
+a.href=URL.createObjectURL(blob);
+a.download="description.txt";
+a.click();
+}
+
+function regenerate(){
+generate();
+}
+</script>
+
+</body>
+</html>
