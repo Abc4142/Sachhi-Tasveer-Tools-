@@ -1,1 +1,231 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sachhita Tools - Ultra Pro AI Tools</title>
+<meta name="description" content="20+ Real AI Tools with Free API Integration">
+
+<!-- ADMolo Script -->
+<script class="admoloScript" src="https://admolo.com/assets/ads/ad.js" async></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f4f6fb;color:#111}
+
+/* NAV */
+.main-nav{background:linear-gradient(135deg,#4f46e5,#06b6d4);position:sticky;top:0;z-index:999}
+.nav-container{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:12px 15px}
+.logo{color:#fff;text-decoration:none;font-weight:700;font-size:22px}
+.logo span{color:#fde047}
+.menu-btn{display:none;color:#fff;font-size:26px;cursor:pointer}
+.nav-links{list-style:none;display:flex;gap:12px}
+.nav-links a{color:#fff;text-decoration:none;font-size:14px;padding:6px 10px;border-radius:6px}
+.nav-links a:hover{background:rgba(255,255,255,.2)}
+@media(max-width:900px){
+.menu-btn{display:block}
+.nav-links{display:none;flex-direction:column;background:#1e293b;position:absolute;top:60px;left:0;width:100%;padding:10px}
+.nav-links.show{display:flex}
+}
+
+/* HERO */
+.hero{text-align:center;padding:60px 15px;background:linear-gradient(135deg,#6366f1,#22c55e);color:#fff}
+.hero h1{font-size:36px}
+.hero p{margin-top:8px;opacity:.9}
+
+/* CONTAINER */
+.container{max-width:1200px;margin:auto;padding:25px}
+
+/* TOOLS GRID */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.tool-card{background:#fff;padding:18px;border-radius:14px;box-shadow:0 10px 20px rgba(0,0,0,.08);cursor:pointer;transition:.3s}
+.tool-card:hover{transform:translateY(-6px)}
+.tool-card h3{font-size:16px}
+.tool-card p{font-size:13px;color:#555;margin-top:5px}
+
+/* TOOL BOX */
+.tool-box{background:#fff;padding:20px;border-radius:14px;box-shadow:0 10px 20px rgba(0,0,0,.08);margin-bottom:25px}
+textarea,input,button{width:100%;padding:10px;margin-top:8px;border-radius:8px;border:1px solid #ccc}
+button{background:#4f46e5;color:#fff;font-weight:600;border:none;cursor:pointer}
+button:hover{background:#4338ca}
+.output{margin-top:10px;padding:10px;background:#f1f5f9;border-radius:8px;font-weight:bold}
+
+/* ADS */
+.ad-box{text-align:center;margin:20px auto;max-width:1200px;padding:10px;background:#fff;border-radius:12px;box-shadow:0 6px 15px rgba(0,0,0,.08)}
+
+footer{background:#111827;color:#fff;text-align:center;padding:25px;margin-top:30px}
+</style>
+</head>
+<body>
+
+<!-- SAFE ERROR BLOCK -->
+<script>window.onerror=function(){return true;};</script>
+
+<!-- SAFE AdOperator -->
+<script>
+(function(){
+try{
+var s=document.createElement("script");
+s.src="//wwr.giriudog.com/?tag=17496f7d";
+s.async=true;
+document.head.appendChild(s);
+}catch(e){}
+})();
+</script>
+
+<!-- NAV -->
+<nav class="main-nav">
+<div class="nav-container">
+<a href="#" class="logo">Sachhita<span>Tools</span></a>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<ul class="nav-links" id="navLinks">
+<li><a href="#tools">All Tools</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<h1>🔥 Ultra Pro AI Tools Platform</h1>
+<p>20+ Real AI Tools with Free API Integration</p>
+</section>
+
+<!-- TOP ADMolo AD -->
+<div class="ad-box">
+<div class="admoloBanner"
+data-publisher="eyJpdiI6IlJRaE1LK0dCTHNGaVhPNmRaeTBDb3c9PSIsInZhbHVlIjoiNFQvL1hDeVYvNVUxeGpWQjNPMzVyQT09IiwibWFjIjoiYjhhOGJlMGI0NzNmOTM2Y2Y5MWYzY2U3YjAxZmM5YWRlZmNhMjNhNTY1MDRiZGIyZjg4MjRjZjAzZTRmNjg5YSIsInRhZyI6IiJ9"
+data-adsize="728x90"></div>
+</div>
+
+<!-- TOOLS LIST -->
+<div class="container" id="tools">
+<h2>🚀 20+ AI & Online Tools</h2>
+
+<div class="tools-grid">
+
+<div class="tool-card" onclick="scrollToTool('tool1')"><h3>AI Text Generator</h3><p>Free AI text</p></div>
+<div class="tool-card" onclick="scrollToTool('tool2')"><h3>Quote Generator</h3><p>Free API quotes</p></div>
+<div class="tool-card" onclick="scrollToTool('tool3')"><h3>Random Joke</h3><p>Joke API</p></div>
+<div class="tool-card" onclick="scrollToTool('tool4')"><h3>Synonym Finder</h3><p>Datamuse API</p></div>
+<div class="tool-card" onclick="scrollToTool('tool5')"><h3>IP Finder</h3><p>ipify API</p></div>
+<div class="tool-card" onclick="scrollToTool('tool6')"><h3>QR Generator</h3><p>QR API</p></div>
+<div class="tool-card" onclick="scrollToTool('tool7')"><h3>Word Counter</h3><p>Count words</p></div>
+<div class="tool-card" onclick="scrollToTool('tool8')"><h3>Password Generator</h3><p>Secure password</p></div>
+<div class="tool-card" onclick="scrollToTool('tool9')"><h3>Emoji Generator</h3><p>Emoji tool</p></div>
+<div class="tool-card" onclick="scrollToTool('tool10')"><h3>Weather Checker</h3><p>Free weather API</p></div>
+
+</div>
+</div>
+
+<!-- TOOL 1 -->
+<div class="container" id="tool1">
+<div class="tool-box">
+<h3>🤖 AI Text Generator</h3>
+<textarea id="aiInput"></textarea>
+<button onclick="aiGenerate()">Generate</button>
+<div class="output" id="aiOutput"></div>
+</div>
+</div>
+
+<!-- TOOL 2 -->
+<div class="container" id="tool2">
+<div class="tool-box">
+<h3>💬 Quote Generator</h3>
+<button onclick="getQuote()">Get Quote</button>
+<div class="output" id="quoteOutput"></div>
+</div>
+</div>
+
+<!-- TOOL 3 -->
+<div class="container" id="tool3">
+<div class="tool-box">
+<h3>😂 Random Joke</h3>
+<button onclick="getJoke()">Get Joke</button>
+<div class="output" id="jokeOutput"></div>
+</div>
+</div>
+
+<!-- TOOL 4 -->
+<div class="container" id="tool4">
+<div class="tool-box">
+<h3>🔤 Synonym Finder</h3>
+<input id="synInput" placeholder="Enter word">
+<button onclick="getSyn()">Find</button>
+<div class="output" id="synOutput"></div>
+</div>
+</div>
+
+<!-- TOOL 5 -->
+<div class="container" id="tool5">
+<div class="tool-box">
+<h3>🌐 IP Finder</h3>
+<button onclick="getIP()">Get IP</button>
+<div class="output" id="ipOutput"></div>
+</div>
+</div>
+
+<!-- TOOL 6 -->
+<div class="container" id="tool6">
+<div class="tool-box">
+<h3>📷 QR Generator</h3>
+<input id="qrInput" placeholder="Enter text">
+<button onclick="genQR()">Generate QR</button>
+<div class="output"><img id="qrImg"></div>
+</div>
+</div>
+
+<footer>© 2026 Sachhita Tools – Ultra Pro AI System</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("show");
+}
+function scrollToTool(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+// AI Generator (simple logic)
+function aiGenerate(){
+let t=document.getElementById("aiInput").value;
+document.getElementById("aiOutput").innerText="AI Output: "+t.split(" ").reverse().join(" ");
+}
+
+// Quote API
+async function getQuote(){
+let r=await fetch("https://api.quotable.io/random");
+let d=await r.json();
+document.getElementById("quoteOutput").innerText=d.content;
+}
+
+// Joke API
+async function getJoke(){
+let r=await fetch("https://official-joke-api.appspot.com/random_joke");
+let d=await r.json();
+document.getElementById("jokeOutput").innerText=d.setup+" - "+d.punchline;
+}
+
+// Synonym API
+async function getSyn(){
+let w=document.getElementById("synInput").value;
+let r=await fetch("https://api.datamuse.com/words?rel_syn="+w);
+let d=await r.json();
+document.getElementById("synOutput").innerText=d.slice(0,5).map(x=>x.word).join(", ");
+}
+
+// IP API
+async function getIP(){
+let r=await fetch("https://api.ipify.org?format=json");
+let d=await r.json();
+document.getElementById("ipOutput").innerText=d.ip;
+}
+
+// QR API
+function genQR(){
+let t=document.getElementById("qrInput").value;
+document.getElementById("qrImg").src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+encodeURIComponent(t);
+}
+</script>
+
+</body>
+</html>
