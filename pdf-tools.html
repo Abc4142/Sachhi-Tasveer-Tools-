@@ -330,7 +330,73 @@ async function protectPDF(){
 }
 </style>
 
-  
+ <!-- 🔥 UNIVERSAL AUTO EONADS SYSTEM - ONE CODE -->
+<script>
+(function () {
+
+  function loadEonadsScript() {
+    if (window.eonadsLoaded) return;
+    var s = document.createElement("script");
+    s.src = "//network.eonads.com/adserver/www/delivery/asyncjs.php";
+    s.async = true;
+    document.body.appendChild(s);
+    window.eonadsLoaded = true;
+  }
+
+  function createAd() {
+    var ad = document.createElement("div");
+    ad.className = "auto-eonads";
+    ad.style.cssText = "margin:20px auto;text-align:center;";
+    ad.innerHTML = `
+      <ins class="e300x250"
+        data-revive-hash="d23601a2f37049bea5cb00c8813297c2"
+        data-revive-zoneid="64507"
+        data-revive-id="f87497be83f6ed6b52c3b340d803ae0d"></ins>
+    `;
+    return ad;
+  }
+
+  function insertAds() {
+    var body = document.body;
+    if (!body) return;
+
+    // 1️⃣ Page Top Ad
+    body.insertBefore(createAd(), body.firstChild);
+
+    // 2️⃣ Page Bottom Ad
+    body.appendChild(createAd());
+
+    // 3️⃣ Tool / Main Content Auto Detect
+    var targets = document.querySelectorAll(
+      "#tool-box, .tool-container, .container, .main, article, .content"
+    );
+
+    targets.forEach(function (el) {
+      // top of tool/content
+      el.parentNode.insertBefore(createAd(), el);
+
+      // bottom of tool/content
+      el.insertAdjacentElement("afterend", createAd());
+    });
+
+    // 4️⃣ Auto Ads After Every 4th Paragraph
+    var paragraphs = document.querySelectorAll("p");
+    for (var i = 0; i < paragraphs.length; i++) {
+      if ((i + 1) % 4 === 0) {
+        paragraphs[i].insertAdjacentElement("afterend", createAd());
+      }
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    loadEonadsScript();
+    insertAds();
+  });
+
+})();
+</script>
+<!-- 🔥 UNIVERSAL AUTO EONADS SYSTEM - ONE CODE -->
+ 
 </body>
 </html>
 
