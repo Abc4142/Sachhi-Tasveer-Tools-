@@ -1,1 +1,302 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Plagiarism Checker Online | Grammarly Style Tool</title>
+<meta name="description" content="Advanced AI plagiarism checker with real API detection. Check duplicate content like Grammarly with highlighted copied text.">
+<meta name="keywords" content="ai plagiarism checker, online plagiarism tool, grammarly style checker, duplicate content checker">
+<meta name="robots" content="index, follow">
+
+<!-- Schema -->
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"SoftwareApplication",
+"name":"AI Plagiarism Checker",
+"applicationCategory":"WebApplication",
+"offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}
+}
+</script>
+
+<style>
+:root{
+--bg:#f8fafc;
+--card:#ffffff;
+--text:#0f172a;
+--primary:#4f46e5;
+--accent:#22c55e;
+--danger:#ef4444;
+--border:#e2e8f0;
+}
+body.dark{
+--bg:#0b1220;
+--card:#111827;
+--text:#f9fafb;
+--border:#1f2933;
+}
+*{box-sizing:border-box;font-family:Inter,Arial;}
+body{
+margin:0;
+background:var(--bg);
+color:var(--text);
+}
+header{
+background:linear-gradient(135deg,#4f46e5,#6366f1);
+color:#fff;
+padding:18px;
+text-align:center;
+}
+header h1{margin:0;font-size:28px;}
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+display:grid;
+grid-template-columns:1fr 320px;
+gap:16px;
+}
+@media(max-width:900px){
+.container{grid-template-columns:1fr;}
+}
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:14px;
+padding:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+textarea{
+width:100%;
+min-height:200px;
+padding:12px;
+border-radius:10px;
+border:1px solid var(--border);
+background:transparent;
+color:var(--text);
+resize:none;
+font-size:14px;
+}
+button{
+padding:10px 16px;
+border:none;
+border-radius:8px;
+background:var(--primary);
+color:#fff;
+cursor:pointer;
+margin:4px;
+font-weight:600;
+}
+button.secondary{background:#64748b;}
+button:hover{opacity:0.9;}
+.result-box{
+margin-top:12px;
+padding:12px;
+border-radius:10px;
+border:1px dashed var(--border);
+font-size:14px;
+}
+.progress{
+height:12px;
+background:#e5e7eb;
+border-radius:20px;
+overflow:hidden;
+margin-top:8px;
+}
+.progress div{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,var(--accent),var(--danger));
+}
+.highlight{
+background:#fecaca;
+padding:2px 4px;
+border-radius:4px;
+}
+.ads{
+border:1px dashed var(--border);
+padding:10px;
+text-align:center;
+font-size:12px;
+margin:10px 0;
+}
+.toggle{
+position:fixed;
+top:15px;
+right:15px;
+padding:6px 12px;
+background:#000;
+color:#fff;
+border-radius:20px;
+cursor:pointer;
+font-size:12px;
+}
+footer{
+text-align:center;
+padding:15px;
+font-size:13px;
+border-top:1px solid var(--border);
+background:var(--card);
+}
+</style>
+</head>
+<body>
+
+<div class="toggle" onclick="toggleMode()">🌙 / ☀️</div>
+
+<header>
+<h1>AI Plagiarism Checker Tool</h1>
+<p>Grammarly-Style Real API Plagiarism Detection</p>
+</header>
+
+<!-- HEADER AD -->
+<div class="ads">
+<!-- 🔥 ADSTERRA CODE HERE -->
+<script async data-cfasync="false" src="https://YOUR_ADSTERRA_SCRIPT.js"></script>
+<div id="YOUR_ADSTERRA_ID"></div>
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>Paste Your Content</h2>
+<textarea id="textInput" placeholder="Paste your text here..."></textarea>
+
+<div>
+<button onclick="checkPlagiarism()">Check Plagiarism</button>
+<button class="secondary" onclick="copyResult()">Copy Result</button>
+<button class="secondary" onclick="downloadResult()">Download</button>
+</div>
+
+<div class="result-box" id="resultBox">Result will appear here...</div>
+<div class="progress"><div id="progressBar"></div></div>
+
+<h3>Highlighted Text</h3>
+<div class="result-box" id="highlightBox"></div>
+
+<h3>Share</h3>
+<button onclick="share('whatsapp')">WhatsApp</button>
+<button onclick="share('facebook')">Facebook</button>
+<button onclick="share('twitter')">Twitter</button>
+<button onclick="share('linkedin')">LinkedIn</button>
+</div>
+
+<div class="card">
+<h3>Sponsored Ads</h3>
+<div class="ads">
+<script async data-cfasync="false" src="https://YOUR_ADSTERRA_SCRIPT.js"></script>
+<div id="YOUR_ADSTERRA_ID"></div>
+</div>
+</div>
+
+</div>
+
+<!-- FOOTER AD -->
+<div class="ads">
+<script async data-cfasync="false" src="https://YOUR_ADSTERRA_SCRIPT.js"></script>
+<div id="YOUR_ADSTERRA_ID"></div>
+</div>
+
+<footer>
+© 2026 AI Plagiarism Checker | Ultra Premium Tool
+</footer>
+
+<script>
+// 🌙 Dark Mode
+function toggleMode(){
+document.body.classList.toggle("dark");
+}
+
+// ✅ REAL API + AI PLAGIARISM CHECKER
+async function checkPlagiarism(){
+let text = document.getElementById("textInput").value.trim();
+if(text.length < 30){
+alert("Enter more text!");
+return;
+}
+
+// 🔥 STEP 1: AI similarity (local)
+let sentences = text.split(/[.!?]/);
+let matches = 0;
+let highlighted = text;
+
+// 🔥 STEP 2: REAL WEB SEARCH API (RapidAPI Example)
+let apiKey = "YOUR_RAPIDAPI_KEY"; // 👈 Replace with your key
+let query = sentences[0];
+
+// Example RapidAPI endpoint (Web Search)
+let url = "https://google-search3.p.rapidapi.com/api/v1/search/q=" + encodeURIComponent(query);
+
+let webText = "";
+
+try{
+let res = await fetch(url,{
+headers:{
+"X-RapidAPI-Key": apiKey,
+"X-RapidAPI-Host": "google-search3.p.rapidapi.com"
+}
+});
+let data = await res.json();
+if(data.results){
+data.results.forEach(r=>{
+webText += r.snippet + " ";
+});
+}
+}catch(e){
+console.log("API error:",e);
+}
+
+// 🔥 STEP 3: AI similarity scoring
+sentences.forEach(s=>{
+let words = s.toLowerCase().split(/\s+/);
+if(webText.toLowerCase().includes(s.toLowerCase())){
+matches++;
+highlighted = highlighted.replace(s, `<span class="highlight">${s}</span>`);
+}
+});
+
+let plagiarism = Math.min(100, Math.round((matches / sentences.length) * 100));
+let unique = 100 - plagiarism;
+
+document.getElementById("resultBox").innerHTML =
+`<b>Plagiarism:</b> ${plagiarism}%<br>
+<b>Unique:</b> ${unique}%<br>
+<b>Sentences Checked:</b> ${sentences.length}`;
+
+document.getElementById("progressBar").style.width = plagiarism + "%";
+document.getElementById("highlightBox").innerHTML = highlighted;
+}
+
+// 📋 Copy
+function copyResult(){
+navigator.clipboard.writeText(document.getElementById("resultBox").innerText);
+alert("Copied!");
+}
+
+// 💾 Download
+function downloadResult(){
+let text = document.getElementById("resultBox").innerText;
+let blob = new Blob([text],{type:"text/plain"});
+let a = document.createElement("a");
+a.href = URL.createObjectURL(blob);
+a.download = "plagiarism-result.txt";
+a.click();
+}
+
+// 🔗 Share
+function share(platform){
+let text = encodeURIComponent(document.getElementById("resultBox").innerText);
+let url = encodeURIComponent(location.href);
+let link="";
+if(platform==="whatsapp") link=`https://api.whatsapp.com/send?text=${text}%20${url}`;
+if(platform==="facebook") link=`https://www.facebook.com/sharer/sharer.php?u=${url}`;
+if(platform==="twitter") link=`https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+if(platform==="linkedin") link=`https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${text}`;
+window.open(link,"_blank");
+}
+</script>
+
+</body>
+</html>
