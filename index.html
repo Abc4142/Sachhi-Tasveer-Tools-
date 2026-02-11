@@ -478,6 +478,195 @@ document.addEventListener("DOMContentLoaded",initAds);
 
 })();
 </script>
+<!-- ================= DG24 MONEY MACHINE PRO MAX (FULL PRODUCT + AFFILIATE LINKS) ================= -->
+
+<style>
+.dg24-wrapper{max-width:100%;margin:20px auto;font-family:Arial,sans-serif;}
+.dg24-slider{
+ background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+ color:#fff;padding:16px;border-radius:16px;
+ box-shadow:0 12px 30px rgba(0,0,0,.4);
+ position:relative;overflow:hidden;
+}
+.dg24-slide{display:none;animation:fadeIn .7s ease;}
+.dg24-slide.active{display:block;}
+.dg24-slider h2{font-size:22px;margin-bottom:6px;}
+.dg24-slider p{font-size:15px;line-height:1.6;}
+.dg24-slider ul{margin:8px 0;padding-left:18px;}
+.dg24-slider li{font-size:14px;margin:4px 0;}
+.dg24-btn{
+ display:inline-block;margin-top:10px;padding:11px 26px;
+ border-radius:8px;font-weight:bold;text-decoration:none;color:#fff;
+ background:linear-gradient(45deg,#ff416c,#ff4b2b);
+ animation:btnColor 2s infinite alternate;transition:.3s;cursor:pointer;
+}
+.dg24-btn:hover{transform:scale(1.06);}
+.dg24-timer{position:absolute;top:10px;right:14px;font-size:13px;opacity:.85;}
+.dg24-stats{margin-top:6px;font-size:12px;opacity:.9;}
+.dg24-dashboard{
+ margin-top:12px;background:#111;border-radius:10px;padding:10px;
+ font-size:13px;display:none;
+}
+.dg24-toggle{margin-top:8px;font-size:12px;cursor:pointer;color:#ffd700;text-decoration:underline;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+@keyframes btnColor{
+ 0%{background:linear-gradient(45deg,#ff416c,#ff4b2b);}
+ 50%{background:linear-gradient(45deg,#00c6ff,#0072ff);}
+ 100%{background:linear-gradient(45deg,#f7971e,#ffd200);}
+}
+</style>
+
+<script>
+(function(){
+var USERNAME="Abc4142"; // Affiliate username
+
+// 🌍 Detect country
+var country="global";
+try{
+ var lang=navigator.language||"";
+ if(lang.toLowerCase().includes("in")) country="india";
+ else if(lang.toLowerCase().includes("us")) country="us";
+ else if(lang.toLowerCase().includes("gb")) country="uk";
+}catch(e){}
+
+// 🛠 DG24 Products Array (All real products + your affiliate link)
+var products=[
+{id:"p1",name:"ClickDesigns AI",desc:"AI-powered design tool.",benefits:["AI design","Easy use","High demand","Best ROI"],link:"https://clickdesigns.com/dg/cd/#aff="+USERNAME,country:"global"},
+{id:"p2",name:"Ultimate Energy Freedom",desc:"High-converting DG24 tool.",benefits:["Energy","Passive income","Trending","Premium"],link:"https://ultimateenergyfreedom.com/dg/index_ultimate.html#aff="+USERNAME,country:"global"},
+{id:"p3",name:"Ingenius Wave",desc:"Advanced AI brainwave technology.",benefits:["AI tech","Premium","High conversion","Global"],link:"https://ingeniuswave.com/DSvsl/#aff="+USERNAME,country:"global"},
+{id:"p4",name:"DG24 Top Tool 444884",desc:"Premium DG24 software.",benefits:["Trending","High ROI","Instant access"],link:"https://www.digistore24.com/redir/444884/"+USERNAME,country:"global"},
+{id:"p5",name:"DG24 Top Tool 361682",desc:"Fast-selling DG24 product.",benefits:["High conversion","Instant access","Global"],link:"https://www.digistore24.com/redir/361682/"+USERNAME,country:"global"},
+{id:"p6",name:"DG24 Top Tool 443554",desc:"Best DG24 software tool.",benefits:["Premium","High demand","Trending"],link:"https://www.digistore24.com/redir/443554/"+USERNAME,country:"global"},
+{id:"p7",name:"The AZ Code",desc:"Exclusive DG24 tool.",benefits:["AI tech","High conversion","Premium"],link:"https://www.theazcode.com#aff="+USERNAME,country:"global"},
+{id:"p8",name:"DG24 Top Tool 363385",desc:"Top-selling software.",benefits:["High ROI","Trending","Global"],link:"https://www.digistore24.com/redir/363385/"+USERNAME,country:"global"},
+{id:"p9",name:"Keystone Investors",desc:"Interview-based DG24 system.",benefits:["Premium","Trending","High conversion"],link:"https://keystoneinvestors.com/interview-24/?utm_source=ds24&utm_medium=email&utm_campaign=[AFFILIATE]#aff="+USERNAME,country:"global"},
+{id:"p10",name:"DG24 Checkout 603007",desc:"Premium digital product.",benefits:["Trending","Instant access","High conversion"],link:"https://www.checkout-ds24.com/redir/603007/"+USERNAME,country:"global"},
+{id:"p11",name:"DG24 Top Tool 482119",desc:"High-demand DG24 software.",benefits:["Global","High ROI","Trending"],link:"https://www.digistore24.com/redir/482119/"+USERNAME,country:"global"},
+{id:"p12",name:"Erfolg Ladys YT Mastery",desc:"YouTube DG24 funnel system.",benefits:["YouTube ready","High CTR","Fast growth"],link:"https://erfolgsladys.com/yt-mastery-info/#aff="+USERNAME,country:"global"},
+{id:"p13",name:"DG24 Top Tool 459894",desc:"Trending DG24 software.",benefits:["High conversion","Premium","Instant access"],link:"https://www.digistore24.com/redir/459894/"+USERNAME,country:"global"},
+{id:"p14",name:"1000 Prompts for Affiliate Marketing",desc:"Ultimate AI prompts tool.",benefits:["AI prompts","High conversion","Trending","Instant access"],link:"http://heikoboos.com/1000-prompts-for-affiliate-marketing#aff="+USERNAME,country:"global"},
+{id:"p15",name:"DG24 Viral System",desc:"High-converting DG24 digital product.",benefits:["Trending","High ROI","Instant access"],link:"https://www.digistore24.com/redir/423307/"+USERNAME,country:"global"},
+{id:"p16",name:"Premium DG24 Offer",desc:"Top-selling digital affiliate offer.",benefits:["High commission","Premium","Fast results"],link:"https://www.digistore24.com/redir/449012/"+USERNAME,country:"global"},
+{id:"p17",name:"YouTube Viral Affiliate System",desc:"YouTube affiliate funnel.",benefits:["YouTube ready","High CTR","Fast growth"],link:"https://wealthsignaloriginal.com/DS/vsl/#aff="+USERNAME,country:"global"},
+{id:"p18",name:"Premium Digital Shop Offer",desc:"Best-selling DG24 product.",benefits:["High sales","Premium","Trending","Instant access"],link:"https://www.checkout-ds24.com/redir/533733/"+USERNAME,country:"global"},
+{id:"p19",name:"El Prodentim",desc:"Dental health supplement.",benefits:["Natural","High demand","Global","Trusted"],link:"http://elprodentim24.com/text.php#aff="+USERNAME,country:"global"},
+{id:"p20",name:"Exclusive Digital Product",desc:"High-converting DG24 product.",benefits:["High conversion","Premium","Trending"],link:"https://www.checkout-ds24.com/redir/533765/"+USERNAME,country:"global"},
+{id:"p21",name:"Quietum Plus",desc:"Hearing support supplement.",benefits:["Natural","Popular","Global","Trusted"],link:"https://quietumplus24.com/text.php#aff="+USERNAME,country:"global"},
+{id:"p22",name:"New DG24 Product",desc:"Latest trending digital product.",benefits:["New launch","High conversion","Trending"],link:"https://www.digistore24.com/redir/635001/"+USERNAME,country:"global"},
+{id:"p23",name:"Wortliga AI Tool",desc:"AI text analysis tool.",benefits:["SEO boost","AI analysis","Professional","Trending"],link:"https://wortliga.de/textanalyse-premium-lp/#aff="+USERNAME,country:"global"},
+{id:"p24",name:"Recraft Resume",desc:"Premium resume builder.",benefits:["Career boost","Premium","Trending"],link:"https://recraftresume.com/#aff="+USERNAME,country:"global"},
+{id:"p25",name:"DG24 Premium Offer",desc:"High-quality digital product.",benefits:["Premium","High ROI","Global","Trending"],link:"https://www.digistore24.com/redir/569531/"+USERNAME,country:"global"},
+{id:"p26",name:"Canva Design Workshop",desc:"Professional design training.",benefits:["Training","Premium","Trending"],link:"http://www.rmgcoachings.de/canva-design-workshop#aff="+USERNAME,country:"global"},
+{id:"p27",name:"Exclusive DS24 Product",desc:"High-converting premium offer.",benefits:["Premium","High demand","Instant"],link:"https://www.checkout-ds24.com/redir/628359/"+USERNAME,country:"global"},
+{id:"p28",name:"DG24 Bestseller",desc:"Top-selling digital product.",benefits:["Trending","High conversion"],link:"https://www.digistore24.com/redir/98201/"+USERNAME,country:"global"},
+{id:"p29",name:"DG24 Pro Product",desc:"Advanced digital product.",benefits:["Pro","High ROI","Trending"],link:"https://www.digistore24.com/redir/565013/"+USERNAME,country:"global"},
+{id:"p30",name:"DG24 Elite Offer",desc:"Elite digital product.",benefits:["Elite","Premium","Trending"],link:"https://www.digistore24.com/redir/471395/"+USERNAME,country:"global"}
+];
+
+// 💾 Filter products by country
+var filtered=products.filter(p=>p.country===country||p.country==="global");
+
+// Click storage
+function getClicks(){return JSON.parse(localStorage.getItem("dg24_clicks")||"{}");}
+function saveClicks(d){localStorage.setItem("dg24_clicks",JSON.stringify(d));}
+
+// Sort by clicks
+function sortByClicks(list){
+ var clicks=getClicks();
+ return list.sort((a,b)=>(clicks[b.id]||0)-(clicks[a.id]||0));
+}
+filtered=sortByClicks(filtered).sort(()=>Math.random()-0.3);
+
+// Build slider
+function buildSlider(){
+ var clicks=getClicks();
+ var html='<div class="dg24-wrapper"><div class="dg24-slider">';
+ html+='<div class="dg24-timer">Next in <span id="dg24-time">5</span>s</div>';
+ filtered.forEach((p,i)=>{
+  var c=clicks[p.id]||0;
+  html+='<div class="dg24-slide'+(i==0?' active':'')+'">'+
+  '<h2>🔥 Recommended Product: '+p.name+'</h2>'+
+  '<p>'+p.desc+'</p>'+
+  '<ul><li>✔ '+p.benefits.join("</li><li>✔ ")+'</li></ul>'+
+  '<a class="dg24-btn" href="'+p.link+'" target="_blank" onclick="trackDG24(\''+p.id+'\')">👉 Get Deal</a>'+
+  '<div class="dg24-stats">📊 Clicks: <span id="dg24-'+p.id+'">'+c+'</span></div>'+
+  '</div>';
+ });
+ html+='<div class="dg24-toggle" onclick="toggleDG24()">📊 Show Analytics</div>';
+ html+='<div class="dg24-dashboard" id="dg24-dashboard"></div>';
+ html+='</div></div>';
+ return html;
+}
+
+// Insert slider
+function insertSlider(){
+ var targets=document.querySelectorAll("body, .post-body, .entry-content, article, .post, .blog-posts, .item-view");
+ if(!targets.length) return;
+ var html=buildSlider();
+ targets.forEach(t=>t.insertAdjacentHTML("afterbegin",html));
+}
+
+// Auto slider
+var index=0;
+function startSlider(){
+ var slides=document.querySelectorAll(".dg24-slide");
+ if(!slides.length) return;
+ var time=5;
+ setInterval(()=>{
+  time--;
+  var el=document.getElementById("dg24-time");
+  if(el) el.innerText=time;
+  if(time<=0){
+   slides[index].classList.remove("active");
+   index=(index+1)%slides.length;
+   slides[index].classList.add("active");
+   time=5;
+  }
+ },1000);
+}
+
+// Click tracking
+window.trackDG24=function(id){
+ var data=getClicks();
+ data[id]=(data[id]||0)+1;
+ saveClicks(data);
+ var el=document.getElementById("dg24-"+id);
+ if(el) el.innerText=data[id];
+ updateDashboard();
+};
+
+// Dashboard
+function updateDashboard(){
+ var data=getClicks();
+ var html="";
+ products.forEach(p=>{
+  html+="<div>👉 "+p.name+" : <b>"+(data[p.id]||0)+"</b> clicks</div>";
+ });
+ var dash=document.getElementById("dg24-dashboard");
+ if(dash) dash.innerHTML=html;
+}
+window.toggleDG24=function(){
+ var d=document.getElementById("dg24-dashboard");
+ if(!d) return;
+ d.style.display=(d.style.display==="block")?"none":"block";
+ updateDashboard();
+};
+
+// Run
+if(document.readyState==="loading"){
+ document.addEventListener("DOMContentLoaded",()=>{
+  insertSlider();
+  startSlider();
+ });
+}else{
+ insertSlider();
+ startSlider();
+}
+
+})();
+</script>
+
+<!-- ================= END DG24 MONEY MACHINE PRO MAX ================= -->
 
 </body>
 </html>
