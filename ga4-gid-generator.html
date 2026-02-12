@@ -221,5 +221,121 @@ function downloadFile(){
  a.click();
 }
 </script>
+ <!-- ================= DG24 MONEY MACHINE ULTRA PRO FULL ================= -->
+<style>
+.dg24-wrapper{max-width:100%;margin:20px auto;font-family:Arial,sans-serif;}
+.dg24-slider,.dg24-sidebar,.dg24-footer,.dg24-article-widget{background:#0f2027;color:#fff;padding:16px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.3);margin-bottom:15px;overflow:hidden;}
+.dg24-slide,.dg24-sidebar-item,.dg24-footer-slide,.dg24-article-slide{display:none;animation:fadeIn .7s ease;}
+.dg24-slide.active,.dg24-sidebar-item.active,.dg24-footer-slide.active,.dg24-article-slide.active{display:block;}
+.dg24-slide h3,.dg24-sidebar-item h4,.dg24-footer-slide h4,.dg24-article-slide h4{margin:0 0 5px;color:#ffd700;}
+.dg24-slide p,.dg24-sidebar-item p,.dg24-footer-slide p,.dg24-article-slide p{margin:0 0 8px;font-size:14px;line-height:1.5;}
+.dg24-btn{display:inline-block;padding:6px 16px;border-radius:5px;color:#fff;text-decoration:none;background:linear-gradient(45deg,#ff416c,#ff4b2b);transition:.3s;font-weight:bold;margin-top:5px;}
+.dg24-btn:hover{transform:scale(1.05);}
+.dg24-popup{position:fixed;bottom:20px;right:20px;background:#203a43;color:#fff;padding:16px;border-radius:12px;box-shadow:0 12px 24px rgba(0,0,0,.4);z-index:9999;display:none;}
+.dg24-popup h4{margin:0 0 5px;color:#ffd700;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+</style>
+
+<!-- ================= Container Divs ================= -->
+<div id="dg24-slider-widget" class="dg24-slider"></div>
+<div id="dg24-sidebar-widget" class="dg24-sidebar"></div>
+<div id="dg24-footer-widget" class="dg24-footer"></div>
+<div id="dg24-article-widget" class="dg24-article-widget"></div>
+<div id="dg24-popup-widget" class="dg24-popup"></div>
+
+<script>
+(function(){
+
+// 🌍 Country Detect
+var country="global";
+try{var lang=navigator.language||"";if(lang.toLowerCase().includes("in")) country="india";}catch(e){}
+
+// ✅ DG24 Products List (Affiliate links included)
+var products=[
+ {name:"ClickDesigns AI",desc:"AI-powered design tool",link:"https://clickdesigns.com/dg/cd/#aff=Abc4142"},
+ {name:"Ingenius Wave",desc:"Advanced AI tool",link:"https://ingeniuswave.com/DSvsl/#aff=Abc4142"},
+ {name:"DG24 Viral System",desc:"High converting affiliate system",link:"https://www.digistore24.com/redir/423307/Abc4142/"},
+ {name:"1000 Prompts for Affiliate Marketing",desc:"Ultimate AI prompts tool",link:"http://heikoboos.com/1000-prompts-for-affiliate-marketing#aff=Abc4142"},
+ {name:"Quietum Plus",desc:"Hearing support supplement",link:"https://quietumplus24.com/text.php#aff=Abc4142"},
+ {name:"CelluCare",desc:"Advanced health supplement",link:"https://cellucarehq.com/d/order-now.php#aff=Abc4142"},
+ {name:"Alpha Xtra Boost",desc:"Men health formula",link:"https://alphaxtraboost24.com/text.php#aff=Abc4142"},
+ {name:"ChatGPT Course",desc:"Premium AI course",link:"https://onlinekurse-von-experten.com/chatgpt-fe/#aff=Abc4142"},
+ {name:"DG24 Premium Offer",desc:"High quality DG24 product",link:"https://www.digistore24.com/redir/569531/Abc4142/"},
+ {name:"Recraft Resume",desc:"Professional resume builder tool",link:"https://recraftresume.com/#aff=Abc4142"},
+ {name:"Ultimate Energy Freedom",desc:"Energy & health system",link:"https://ultimateenergyfreedom.com/dg/index_ultimate.html#aff=Abc4142"},
+ {name:"Jonas Klaholz Tool",desc:"Premium online tool",link:"https://www.jonasklaholz.de/#aff=Abc4142"},
+ {name:"Wortliga AI Tool",desc:"AI text analysis & SEO",link:"https://wortliga.de/textanalyse-premium-lp/#aff=Abc4142"},
+ {name:"Dentitox",desc:"Dental health solution",link:"https://dentitox24.com/text.php#aff=Abc4142"},
+ {name:"NeuroQuiet",desc:"Brain support supplement",link:"https://neuroquiethq.com/store-ds.php#aff=Abc4142"},
+ {name:"Pronutra Quest",desc:"Latest health product",link:"https://pronutraquest.com/tsl-ds24-irl-0#aff=Abc4142"},
+ {name:"DG24 Bestseller",desc:"Top selling digital product",link:"https://www.digistore24.com/redir/98201/Abc4142/"},
+ {name:"DG24 Pro Product",desc:"Advanced DG24 digital product",link:"https://www.digistore24.com/redir/565013/Abc4142/"},
+ {name:"DG24 Elite Offer",desc:"Elite premium offer",link:"https://www.digistore24.com/redir/471395/Abc4142/"},
+ {name:"New DG24 Product",desc:"Latest trending product",link:"https://www.digistore24.com/redir/635001/Abc4142/"}
+];
+
+// Filter country products (future use)
+var filtered=products;
+
+// 🔹 Build Widgets
+function buildWidget(containerId,slideClass){
+ var html="";
+ filtered.forEach((p,i)=>{
+  html+='<div class="'+slideClass+(i==0?' active':'')+'">';
+  html+='<h4>🔥 '+p.name+'</h4>';
+  html+='<p>'+p.desc+'</p>';
+  html+='<a class="dg24-btn" href="'+p.link+'" target="_blank">👉 Get Now</a>';
+  html+='</div>';
+ });
+ document.getElementById(containerId).innerHTML=html;
+}
+
+// 🔹 Build Popup
+function buildPopup(){
+ var p=filtered[Math.floor(Math.random()*filtered.length)];
+ var html='<h4>💥 '+p.name+'</h4>';
+ html+='<p>'+p.desc+'</p>';
+ html+='<a class="dg24-btn" href="'+p.link+'" target="_blank">👉 Grab Now</a>';
+ var popup=document.getElementById("dg24-popup-widget");
+ popup.innerHTML=html;
+ popup.style.display="block";
+ setTimeout(()=>{popup.style.display="none";},10000);
+}
+
+// 🔹 Auto Slide
+function autoSlide(className){
+ var index=0;
+ setInterval(function(){
+  var slides=document.querySelectorAll(className);
+  if(slides.length==0) return;
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+ },5000);
+}
+
+// 🔹 Auto Embed in Article
+function embedInArticle(){
+ var article=document.querySelector(".post-body, article, .entry-content");
+ if(!article) return;
+ var div=document.createElement("div");
+ div.id="dg24-article-widget";
+ article.insertBefore(div, article.children[Math.floor(article.children.length/2)]);
+ buildWidget("dg24-article-widget","dg24-article-slide");
+ autoSlide(".dg24-article-slide");
+}
+
+// 🔹 Run Everything
+buildWidget("dg24-slider-widget","dg24-slide");
+buildWidget("dg24-sidebar-widget","dg24-sidebar-item");
+buildWidget("dg24-footer-widget","dg24-footer-slide");
+buildPopup();
+autoSlide(".dg24-slide");
+autoSlide(".dg24-sidebar-item");
+autoSlide(".dg24-footer-slide");
+embedInArticle();
+
+})();
+</script>
 </body>
 </html>
