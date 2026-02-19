@@ -1,3 +1,155 @@
+<div id="ultra-dg24-box">
+  <div class="ultra-card">
+    <div class="ultra-badge">🔥 Hot Digital Offer</div>
+    <h3 id="ultra-title">Loading Offer...</h3>
+    <p>⚡ <span id="buyer-count">17</span> People Viewing Now</p>
+    <p>⏳ Offer Ends In: <span id="countdown"></span></p>
+    <a id="ultra-btn" href="#" target="_blank">🚀 Unlock Now</a>
+  </div>
+</div>
+
+<!-- EXIT POPUP -->
+<div id="exit-popup">
+  <div class="popup-content">
+    <h2>Wait! Special Bonus Inside 🎁</h2>
+    <p>Limited time high converting digital system.</p>
+    <a id="popup-btn" href="#" target="_blank">👉 Claim Instant Access</a>
+  </div>
+</div>
+
+<style>
+#ultra-dg24-box{font-family:Arial;width:100%;}
+.ultra-card{
+background:linear-gradient(135deg,#141e30,#243b55);
+color:#fff;
+padding:20px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+animation:fadeIn 1s ease-in-out;
+}
+.ultra-badge{
+background:#ff3d00;
+padding:5px 12px;
+border-radius:20px;
+font-size:12px;
+}
+.ultra-card h3{margin:15px 0;font-size:18px;}
+.ultra-card a{
+display:inline-block;
+margin-top:15px;
+padding:12px 22px;
+background:#00ffcc;
+color:#000;
+font-weight:bold;
+border-radius:8px;
+text-decoration:none;
+transition:0.3s;
+}
+.ultra-card a:hover{transform:scale(1.08);background:#fff;}
+#exit-popup{
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+.popup-content{
+background:#fff;
+padding:30px;
+text-align:center;
+border-radius:15px;
+max-width:350px;
+}
+.popup-content a{
+display:inline-block;
+margin-top:15px;
+padding:12px 20px;
+background:#ff3d00;
+color:#fff;
+text-decoration:none;
+border-radius:8px;
+}
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+</style>
+
+<script>
+const ultraLinks = [
+"https://www.digistore24.com/redir/449012/Abc4142/",
+"https://clickdesigns.com/dg/cd/#aff=lg47467b6a",
+"https://ingeniuswave.com/DSvsl/#aff=Abc4142",
+"https://www.checkout-ds24.com/redir/533733/yekipusange1095c3/",
+"https://www.digistore24.com/redir/444884/Abc4142/",
+"https://www.digistore24.com/redir/361682/Abc4142/",
+"https://www.digistore24.com/redir/504381/Abc4142/",
+"https://www.checkout-ds24.com/redir/557220/Abc4142/",
+"https://www.checkout-ds24.com/redir/603007/Abc4142/",
+"https://www.digistore24.com/redir/279178/Abc4142/"
+];
+
+const ultraTitles = [
+"AI Passive Income System 2026",
+"High Ticket Digital Blueprint",
+"Automated Affiliate Cash Machine",
+"New AI Profit Software",
+"Click & Earn Business Model",
+"Digital Wealth Generator"
+];
+
+function rotateUltra(){
+let randomLink = ultraLinks[Math.floor(Math.random()*ultraLinks.length)];
+let randomTitle = ultraTitles[Math.floor(Math.random()*ultraTitles.length)];
+document.getElementById("ultra-title").innerText = randomTitle;
+document.getElementById("ultra-btn").href = randomLink;
+document.getElementById("popup-btn").href = randomLink;
+}
+
+rotateUltra();
+setInterval(rotateUltra,15000);
+
+/* Fake Buyer Counter */
+let count = 17;
+setInterval(()=>{
+count += Math.floor(Math.random()*3);
+if(count>45){count=18;}
+document.getElementById("buyer-count").innerText = count;
+},4000);
+
+/* Countdown Timer 10 Min Reset */
+function startCountdown(){
+let time = 600;
+setInterval(()=>{
+let minutes = Math.floor(time/60);
+let seconds = time%60;
+document.getElementById("countdown").innerText = 
+minutes + "m " + (seconds<10?"0":"") + seconds + "s";
+time--;
+if(time<0){time=600;}
+},1000);
+}
+startCountdown();
+
+/* Exit Intent Popup */
+document.addEventListener("mouseout",function(e){
+if(e.clientY < 10){
+document.getElementById("exit-popup").style.display="flex";
+}
+});
+document.getElementById("exit-popup").addEventListener("click",function(){
+this.style.display="none";
+});
+</script>
+<br>
+<br>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
